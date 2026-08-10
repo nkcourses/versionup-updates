@@ -1,0 +1,63 @@
+name: Publish release from updates.json
+ 
+on:
+  push:
+    branches: [main]
+    paths: ['updates.json']
+  # Lets you run it by hand from the Actions tab if a commit is ever missed.
+  workflow_dispatch:
+ 
+permissions:
+  contents: write
+ 
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+ 
+      - name: Read the version and notes
+        id: feed
+        run: |
+          set -euo pipefail
+          VERSION=$(jq -r '.latest' updates.json)
+          if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
+            echo "updates.json has no .latest — nothing to release." >&2
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+ 
+          # The release body: the headline, then the bullets, then how to update.
+          {
+            jq -r '.headline // empty' updates.json
+            echo
+            jq -r '.notes[]? | "- " + .' updates.json
+            echo
+            echo "Update: download the latest \`.ccx\` from your original Lemon Squeezy receipt,"
+            echo "install it over the top, and restart Premiere. Your licence key stays activated."
+          } > release-body.md
+ 
+          echo "--- release body ---"
+          cat release-body.md
+ 
+      - name: Stop if this release already exists
+        id: exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "v${{ steps.feed.outputs.version }}" >/dev/null 2>&1; then
+            echo "v${{ steps.feed.outputs.version }} already exists — leaving it alone."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+ 
+      - name: Create the release
+        if: steps.exists.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ steps.feed.outputs.version }}" \
+            --title "VersionUp ${{ steps.feed.outputs.version }}" \
+            --notes-file release-body.md
+          echo "Created v${{ steps.feed.outputs.version }}"
