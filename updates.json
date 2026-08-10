@@ -1,18 +1,13 @@
 {
-  "latest": "0.86.0",
-  "released": "2026-08-07",
-  "headline": "The first release.",
+  "latest": "0.87.0",
+  "released": "2026-08-10",
+  "headline": "Tell me what's broken without leaving Premiere.",
   "url": "https://github.com/nkcourses/versionup-updates/releases/latest",
   "notes": [
-    "Version up a sequence in one click — the old copy is archived and the sequence in your timeline is renamed in place, so your open tab never changes",
-    "Version up twenty sequences at once by selecting them in the Project panel",
-    "Archived copies keep your folder structure instead of being flattened into one pile",
-    "Mark the cut a client signed off, with its own bin, colour and `_MASTER` name",
-    "Version the `.prproj` file itself, with the target filename shown on the button before you press it",
-    "An amber banner when you have opened an old version by mistake, with a jump to the latest",
-    "Alt-click any button to see exactly what it would do without doing it",
-    "A short tour on first run, replayable any time from ☰ → Tips & tour",
-    "Bin names, label colours and naming patterns are all yours to change",
-    "The panel tells you when a new version is out, and never nags about one you have waved away"
+    "**Submit feedback**, in the ☰ menu. Type it, press Send, done — no email app, no copying version numbers by hand.",
+    "**Help**, in the ☰ menu, opens the new documentation with a guide to every button.",
+    "Tips & tour is four steps instead of six, and set larger so it can actually be read.",
+    "Fixed: the panel stopped resizing its buttons with the window.",
+    "Fixed: choosing a tour step or a feedback type left the button looking unpressed."
   ]
 }
