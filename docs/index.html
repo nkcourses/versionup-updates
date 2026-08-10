@@ -119,6 +119,20 @@
   th{color:var(--ink); font-size:13px; letter-spacing:.04em; text-transform:uppercase}
   td code{white-space:nowrap}
 
+  /* ---------- release history ---------- */
+  .rel{border:1px solid var(--line); border-radius:12px; padding:15px 20px; margin:14px 0}
+  .rel:first-child{border-color:var(--edge); background:var(--tint)}
+  .rel-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:4px}
+  .rel-ver{font-size:17px; font-weight:600; color:var(--ink)}
+  .pill{background:var(--violet); color:#fff; font-size:10.5px; font-weight:700;
+        letter-spacing:.08em; text-transform:uppercase; padding:3px 8px; border-radius:99px}
+  .rel-date{margin-left:auto; font-size:13.5px; color:var(--muted)}
+  /* The first paragraph of a release body is the headline line. */
+  .rel-body>p:first-child{color:var(--ink); font-weight:600}
+  .rel-body>:last-child{margin-bottom:0}
+  .rel-body ul{margin-bottom:0}
+  .loading{color:var(--muted); font-size:14.5px; margin:14px 0}
+
   footer{border-top:1px solid var(--line); margin-top:70px; padding-top:22px;
          font-size:14px; color:var(--muted)}
 
@@ -167,6 +181,7 @@
   <h4>Reference</h4>
   <a href="#licence">Your licence</a>
   <a href="#updates">Updates</a>
+  <a href="#history">Release history</a>
   <a href="#feedback">Sending feedback</a>
   <a href="#privacy">What is and isn't collected</a>
   <a href="#troubleshooting">Troubleshooting</a>
@@ -364,6 +379,13 @@
   <p>Updates are free. Download the new <code>.ccx</code> from your original purchase link, double-click
   it, and restart Premiere. Your licence key stays activated.</p>
 
+  <h2 id="history">Release history</h2>
+  <p>Every version, newest first.</p>
+
+  <!-- Filled in by the script at the foot of this page, from the repository's
+       releases. There is nothing to edit here when a version ships. -->
+  <div id="releases"><p class="loading">Loading the release history…</p></div>
+
   <h2 id="feedback">Sending feedback</h2>
   <p><strong>☰ &gt; Submit feedback.</strong> Tell me it's a bug or a feature request, write what
   happened, and press Send. Your email is optional, but without it I cannot reply.</p>
@@ -454,6 +476,113 @@
   nav.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') nav.classList.remove('open');
   });
+
+  /* ------------------------------------------------------------------------
+     RELEASE HISTORY — reads the repository's own releases at page load.
+
+     🔴 THERE IS NO PUBLISHING STEP FOR THIS SECTION, AND THERE MUST NEVER BE.
+     The chain already exists: commit updates.json -> the release Action builds
+     a GitHub release -> this reads it back. Adding "and also update the docs
+     page" to the release routine would be a step that gets skipped, and a
+     changelog that lags the product is worse than no changelog.
+     ------------------------------------------------------------------------ */
+  (function () {
+    var REPO = 'nkcourses/versionup-updates';
+    var API  = 'https://api.github.com/repos/' + REPO + '/releases?per_page=20';
+    var LIST = 'https://github.com/' + REPO + '/releases';
+    var box  = document.getElementById('releases');
+    if (!box) return;
+
+    var KEY = 'vu-releases', TTL = 3600000;   // an hour
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+
+    /* Release bodies are written by us, in one shape: a headline line, then
+       "- " bullets. This renders that shape and nothing else — a real Markdown
+       parser would be forty times the code for no visible gain. Everything is
+       escaped first, so a stray < in a release note cannot break the page. */
+    function md(src) {
+      var out = '', open = false;
+      function inline(t) {
+        return t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>');
+      }
+      esc(src).split(/\r?\n/).forEach(function (raw) {
+        var line = raw.trim();
+        /* 🔴 Skip headings. The Action's own bodies have none, but the manual
+           fallback in docs/publishing-an-update.md says to paste
+           dist/release-notes.md — and that file opens with "## VersionUp 1.2.3".
+           Without this, one hand-made release renders a literal "##" on the
+           page. The card header already shows the version and the date. */
+        if (/^#{1,6}\s/.test(line)) {
+          if (open) { out += '</ul>'; open = false; }
+          return;
+        }
+        if (/^[-*]\s+/.test(line)) {
+          if (!open) { out += '<ul>'; open = true; }
+          out += '<li>' + inline(line.replace(/^[-*]\s+/, '')) + '</li>';
+        } else {
+          if (open) { out += '</ul>'; open = false; }
+          if (line) out += '<p>' + inline(line) + '</p>';
+        }
+      });
+      return out + (open ? '</ul>' : '');
+    }
+
+    /* Every release body ends with the same "how to update" paragraph, which is
+       right for the release page and pure noise repeated twenty times here —
+       the section above already says it once. Coupled to the Action's wording;
+       if that changes, the paragraph simply reappears. Nothing breaks. */
+    function trim(body) {
+      return String(body || '').split(/\n+Update: download/)[0];
+    }
+
+    function when(iso) {
+      var d = new Date(iso);
+      return isNaN(d.getTime()) ? '' :
+        d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    /* 🔴 NEVER A DEAD END. Unauthenticated GitHub allows 60 calls an hour per
+       IP address, so a reader on a busy office connection can genuinely be
+       refused. They get a link to the same information, not an empty heading. */
+    function fail() {
+      box.innerHTML = '<div class="note"><p>The release list could not be loaded just now. ' +
+        '<a href="' + LIST + '">See every release on GitHub</a>.</p></div>';
+    }
+
+    function draw(rels) {
+      if (!rels || !rels.length) return fail();
+      box.innerHTML = rels.map(function (r, i) {
+        var ver = String(r.tag_name || r.name || '').replace(/^v/, '');
+        return '<article class="rel"><div class="rel-head">' +
+                 '<span class="rel-ver">' + esc(ver) + '</span>' +
+                 (i === 0 ? '<span class="pill">Latest</span>' : '') +
+                 '<span class="rel-date">' + esc(when(r.published_at)) + '</span>' +
+               '</div><div class="rel-body">' + md(trim(r.body)) + '</div></article>';
+      }).join('');
+    }
+
+    try {
+      var hit = JSON.parse(sessionStorage.getItem(KEY) || 'null');
+      if (hit && Date.now() - hit.at < TTL) { draw(hit.data); return; }
+    } catch (e) { /* private browsing, or a corrupt entry. Just fetch. */ }
+
+    fetch(API, { headers: { Accept: 'application/vnd.github+json' } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (all) {
+        var rels = [].concat(all).filter(function (r) { return r && !r.draft; });
+        try {
+          sessionStorage.setItem(KEY, JSON.stringify({ at: Date.now(), data: rels }));
+        } catch (e) { /* storage full or blocked — the page still works. */ }
+        draw(rels);
+      })
+      .catch(fail);
+  })();
 </script>
 </body>
 </html>
