@@ -1,13 +1,12 @@
 {
-  "latest": "0.87.0",
-  "released": "2026-08-10",
-  "headline": "Tell me what's broken without leaving Premiere.",
+  "latest": "0.88.0",
+  "released": "2026-08-11",
+  "headline": "The wrong-version warning now stays up while you work.",
   "url": "https://github.com/nkcourses/versionup-updates/releases/latest",
   "notes": [
-    "**Submit feedback**, in the ☰ menu. Type it, press Send, done — no email app, no copying version numbers by hand.",
-    "**Help**, in the ☰ menu, opens the new documentation with a guide to every button.",
-    "Tips & tour is four steps instead of six, and set larger so it can actually be read.",
-    "Fixed: the panel stopped resizing its buttons with the window.",
-    "Fixed: choosing a tour step or a feedback type left the button looking unpressed."
+    "The amber \"you're on an old version\" banner used to disappear the moment you clicked anything in the Project panel — exactly when you were most likely to be looking at it. It now follows your timeline, whatever else is selected.",
+    "**Check for updates**, in the ☰ menu. The panel looks once a day on its own; this asks straight away.",
+    "Fixed: docked as a narrow strip, the three buttons sat far apart with small symbols. Tighter gutters, bigger icons.",
+    "Fixed: docked tall and narrow, the panel could stay in the compact strip instead of using the height it had."
   ]
 }
