@@ -2,7 +2,7 @@
   "latest": "0.88.0",
   "released": "2026-08-11",
   "headline": "The wrong-version warning now stays up while you work.",
-  "url": "https://github.com/nkcourses/versionup-updates/releases/latest",
+  "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
     "The amber \"you're on an old version\" banner used to disappear the moment you clicked anything in the Project panel — exactly when you were most likely to be looking at it. It now follows your timeline, whatever else is selected.",
     "**Check for updates**, in the ☰ menu. The panel looks once a day on its own; this asks straight away.",
