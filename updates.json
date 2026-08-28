@@ -1,12 +1,20 @@
 {
-  "latest": "0.88.0",
-  "released": "2026-08-11",
-  "headline": "The wrong-version warning now stays up while you work.",
+  "latest": "1.1.0",
+  "released": "2026-08-28",
+  "headline": "Alt-click branches, Shift-click starts a new major",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "The amber \"you're on an old version\" banner used to disappear the moment you clicked anything in the Project panel — exactly when you were most likely to be looking at it. It now follows your timeline, whatever else is selected.",
-    "**Check for updates**, in the ☰ menu. The panel looks once a day on its own; this asks straight away.",
-    "Fixed: docked as a narrow strip, the three buttons sat far apart with small symbols. Tighter gutters, bigger icons.",
-    "Fixed: docked tall and narrow, the panel could stay in the compact strip instead of using the height it had."
+    "**Alt-click Version up** to branch rather than advance: `Brand Film_v03` gets you `Brand Film_ALT_v03`, a copy sitting beside it. The original is not renamed, not archived and not moved, and your timeline stays exactly where it was",
+    "Alt again and the series continues — `_ALT_v04`, `_ALT_v05` — so three ways of cutting the same scene sit together",
+    "Making an alternative of an old cut is allowed even when the wrong-version guard is on: the client asking what v03 sounds like with the other music is a real request, and nothing is renamed",
+    "**Shift-click Version up to raise the major version** — `Cut_v4.4` becomes `Cut_v5.1`, not `Cut_v4.5`. For the cut that has been through four rounds of notes and is now a different edit rather than the next revision of the same one",
+    "If your names have no major part, Shift starts one: `Brand Film_v03` becomes `Brand Film_v04.1`, and ordinary clicks then run `v04.2`, `v04.3`",
+    "**Hover a button and it shows what each key does** — Click, ⌥ click and ⇧ click — with a worked example on every row (`v1.2 → v1.3`, `v1.2 → ALT_v1.2`, `v1.2 → v2.1`), and the row for the key you are actually holding lights up. It waits a second before appearing, so it no longer flashes at every pointer that crosses the panel",
+    "The arrow on Version up turns into two arrows passing in opposite directions while Alt is held, so you can see which press you are about to make",
+    "**The panel is shorter at every dock size.** It no longer prints \"VersionUp\" — Premiere's tab already says that two centimetres above — and the header no longer takes a band of its own. The ☰ floats in the top corner, so Settings and your licence stay one click away, and the buttons start about 23px higher on every dock",
+    "The buttons start darker and light up the moment you point at one, with the coloured edge easing in just behind. Move away and the colour fades out gently rather than snapping off",
+    "Each button takes its colour from the VersionUp mark — blue for Version up, green for Approve, purple for Project. A tint of it on hover, and after a clean run a ring in that button's own colour at full strength, which turns once around the tile before handing back to the hover colour",
+    "The rename preview has gone. Against real sequence names it was two nearly identical lines where only the last characters differed, which is not a preview so much as a wall. The Project button still shows the version it will write, and the status line says how many sequences are selected",
+    "**Fixed:** Alt-click on a `v1.2`-style name put the marker inside the version number — `Cut_v1_ALT.2`. It now reads `Cut_ALT_v1.2`. Wrong since Alt-click shipped, and only noticed when the panel had to state an example"
   ]
 }
