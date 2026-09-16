@@ -33,7 +33,7 @@ jobs:
             echo
             jq -r '.notes[]? | "- " + .' updates.json
             echo
-            echo "Update: download the latest \`.ccx\` from your original Lemon Squeezy receipt,"
+            echo "Update: download the latest \`.ccx\` from https://nkcourses.github.io/versionup-updates/VersionUp.ccx —"
             echo "install it over the top, and restart Premiere. Your licence key stays activated."
           } > release-body.md
  
