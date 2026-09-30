@@ -11,9 +11,12 @@
   │  Images live in assets/ beside this file. Keep them together.            │
   │                                                                          │
   │  🔴 THE FACTS HERE COME FROM THE PANEL, NOT FROM MEMORY:                 │
-  │    menu items      index.html  -> Settings… / Tour / Help /              │
-  │                                   Check for updates / Submit feedback /  │
-  │                                   About / Licence                        │
+  │    menu items      index.html  -> Tour / Help &amp; licence… /             │
+  │                                   Send feedback… / ── / Settings…        │
+  │      (Help, licence and the update check are ONE window since 29 Sep)    │
+  │      ⚠️ THREE OF THOSE END IN AN ELLIPSIS and two of them gained it on   │
+  │      6 Sep 2026 without this list being updated. The ellipsis marks the  │
+  │      items that open a window you fill in.                              │
   │    panel location  store-copy  -> Window > UXP Plugins > VersionUp       │
   │    minimum host    manifest    -> Premiere Pro 25.6.0                    │
   │  If any of those change, this page is wrong and nothing will tell you.   │
@@ -268,18 +271,18 @@
     <li><strong>Quit Premiere Pro and open it again.</strong> Premiere only looks for new panels at
       startup.</li>
     <li><strong>Window &gt; UXP Plugins &gt; VersionUp.</strong></li>
-    <li>In the panel, open the <strong>☰ menu &gt; About / Licence</strong>, paste your key and press
+    <li>In the panel, open the <strong>☰ menu &gt; Help &amp; licence</strong>, paste your key and press
       <strong>Activate</strong>.</li>
   </ol>
 
   <!-- 🔴 THIS REPLACED AN ORDER SCREENSHOT FROM THE OLD STORE — 22 Aug 2026. The old
        one showed the Files section of a store that was never approved, telling
        every customer to look for a page they cannot reach.
-       ⚠️ THE KEY IN THIS SHOT IS DELIBERATELY A FAKE — NKV-TEST-EMAI-L001 was
-       never issued to anyone. Never screenshot a real key: this image is public
+       ⚠️ THE KEY IN THIS SHOT IS DELIBERATELY A FAKE — NKV-XXXX-XXXX-XXXX, rendered
+       by licence-worker/preview/screenshot.py. Never screenshot a real key: this image is public
        on the help site forever. -->
   <figure>
-    <img src="assets/order-email.png" alt="The order email from NK Courses, showing the licence key in a box and an Install guide button.">
+    <img src="assets/order-email.png" alt="The order email from NK Courses, showing the licence key in a box and a Download VersionUp button.">
     <figcaption>Your licence key arrives by email from <strong>NK Courses</strong>. Copy it — you
       will paste it into the panel in step 5.</figcaption>
   </figure>
@@ -345,7 +348,7 @@
   </figure>
 
   <div class="note warn">
-    <p><b>This one cannot be undone.</b> Everything else in VersionUp is a single Cmd+Z; saving a
+    <p><b>This one cannot be undone.</b> Everything else in VersionUp is a single Undo (Cmd+Z, or Ctrl+Z on Windows); saving a
     project writes a file. That is why the button shows you the name it is about to use.</p>
   </div>
 
@@ -357,10 +360,10 @@
   <table>
     <tr><th>Click</th><td>The next project version &mdash; <code>Job_v03.prproj</code></td></tr>
     <tr><th>&#8997; Alt-click</th><td>An alternative &mdash; <code>Job_ALT_v03.prproj</code>, beside
-      the original</td></tr>
+      the original. Also works when the guard is blocking an old project file.</td></tr>
     <tr><th>&#8679; Shift-click</th><td>A new major &mdash; <code>Job_v04.1.prproj</code></td></tr>
-    <tr><th>&#8984; Cmd-click</th><td>Shows the current project in Finder or Explorer. Nothing is
-      written.</td></tr>
+    <tr><th>&#8984; Cmd-click<br>(Ctrl-click on Windows)</th><td>Shows the current project&rsquo;s
+      folder. Nothing is written.</td></tr>
   </table>
 
   <h2 id="versions">Your version history</h2>
@@ -376,9 +379,10 @@
   <ul>
     <li><strong>Sequence and Project tabs</strong> appear once there is something in both.</li>
     <li><strong>A green tick</strong> marks a cut that was approved, with the date it happened.</li>
-    <li><strong>Click a project row</strong> to open that file&rsquo;s folder. Sequence rows are not
-      files, so they do not do this &mdash; and only the rows that do something light up under the
-      pointer.</li>
+    <li><strong>Click a sequence row</strong> to open that sequence in the timeline. The one you
+      are in now is marked with a blue edge.</li>
+    <li><strong>Click a project row</strong> to show that file&rsquo;s folder, with its full path
+      copied to your clipboard.</li>
   </ul>
 
   <div class="note">
@@ -388,7 +392,7 @@
     remembered.</p>
   </div>
 
-  <p><strong>You can put it away.</strong> Settings &rarr; Options &rarr; <em>Show version
+  <p><strong>You can put it away.</strong> Settings &rarr; Panel &rarr; <em>Show version
   history</em>. It is on to start with; turn it off and the strip goes, giving that height back to
   the buttons &mdash; useful if you keep the panel docked short. Nothing is forgotten: VersionUp
   carries on recording, and switching it back on shows everything it made while the strip was
@@ -403,21 +407,43 @@
     <figcaption>The expensive mistake is not losing a file — it is not noticing.</figcaption>
   </figure>
 
+  <h3 id="guard-project">It watches the project file too</h3>
+  <p>Open <code>Job_v02.prproj</code> from your recent files while <code>Job_v04.prproj</code> sits in
+  the same folder, and the same amber banner says so: <em>You&rsquo;re in Job_v02.prproj.
+  Job_v04.prproj is newer.</em></p>
+  <p><strong>Show folder</strong> opens the folder the newer file is in and copies its full path to
+  your clipboard, so you can open it straight away. VersionUp does not open it for you &mdash; it
+  shows you where it is.</p>
+  <p>While you are in the older file, the <strong>Project</strong> button won&rsquo;t version it.
+  If you really do mean to work from the old one, <strong>Alt-click</strong> Project to branch an
+  alternative from it on purpose.</p>
+
+  <figure>
+    <img src="assets/wrong-project-demo.gif" alt="An older project file is open. An amber banner names the newer file, the Project button refuses, and Show folder reveals the newer file with its path copied.">
+    <figcaption>Only the Project button is held back &mdash; Version up and Approve still work.</figcaption>
+  </figure>
+
+  <p>Both checks follow one switch: Settings &rarr; Panel &rarr; <em>Block VersionUp on an old
+  version</em>. It is on to start with. Turn it off and the banner still warns you, but nothing is
+  blocked.</p>
+
   <h2 id="alt">Alt-click: an alternative</h2>
   <p><strong>Hold Alt &mdash; Option on a Mac &mdash; and click Version up.</strong> Instead of advancing
-  the version, VersionUp makes a copy beside it: <code>Brand Film_ALT_v03</code>. The original is
-  not renamed and not moved.</p>
+  the version, VersionUp makes a copy, <code>Brand Film_ALT_v03</code>, files it in an
+  <code>ALT</code> bin and opens it, so you carry on in it. The original is not renamed and not
+  moved.</p>
   <p>For the version of a cut you want to try without giving up the one you have.</p>
   <p><strong>Alt-click Project</strong> does the same thing to the project file &mdash;
-  <code>Job_ALT_v03.prproj</code> beside the original. <em>Showing the project in Finder moved to
-  <strong>&#8984; Cmd-click</strong></em> so that Alt could mean the same thing on every button.</p>
+  <code>Job_ALT_v03.prproj</code> beside the original. <em>Showing the project&rsquo;s folder moved to
+  <strong>&#8984; Cmd-click</strong> (Ctrl-click on Windows)</em> so that Alt could mean the same
+  thing on every button.</p>
 
   <p>Rest on any button for a second and the panel shows you what each key does &mdash; with the
   real name it would write, not a placeholder &mdash; and lights the row for the key you are
   actually holding.</p>
 
   <figure>
-    <img src="assets/modifier-keys.png" alt="Two panels side by side. On Version up, three rows: Click for version up, Alt-click for an alternative, Shift-click for a new major, each showing the resulting name; the Alt row is lit because Alt is being held. On Project, four rows, the fourth being Cmd-click to show in Finder.">
+    <img src="assets/modifier-keys.png" alt="Two panels side by side. On Version up, three rows: Click for version up, Alt-click for an alternative, Shift-click for a new major, each showing the resulting name; the Alt row is lit because Alt is being held. On Project, four rows, the fourth being Cmd-click to show the project's folder.">
     <figcaption>A read-out, not a legend: hold a key and the panel tells you what this click will
       now do.</figcaption>
   </figure>
@@ -425,8 +451,8 @@
   <div class="note">
     <p><b>If a row never lights up, that key is not reaching the panel.</b> Alt is the one to rely
     on. Premiere does not always pass Cmd and Shift through to a plugin panel, so the panel still
-    lists them but cannot promise them on every system &mdash; and showing a project in Finder is
-    also one click on its row in the Versions strip, with no key held at all.</p>
+    lists them but cannot promise them on every system &mdash; and showing a project&rsquo;s folder
+    is also one click on its row in the Versions strip, with no key held at all.</p>
   </div>
 
   <h2 id="major">Shift-click: a major version</h2>
@@ -438,8 +464,10 @@
   <p><strong>If your names have no major part, Shift makes one.</strong> <code>Brand Film_v03</code>
   becomes <code>Brand Film_v04.1</code>, and ordinary clicks after that run <code>v04.2</code>,
   <code>v04.3</code> and so on.</p>
-  <p>It won't do this to date-stamped names or to a custom pattern &mdash; there is no major number
-  in either, so it says so and changes nothing.</p>
+  <p><strong>It works whatever naming format you use.</strong> With a custom pattern, Shift keeps the
+  name you have and raises its number &mdash; <code>Brand Film_v03</code> becomes
+  <code>Brand Film_v04.1</code>. The only name it can't raise is one with no version number in it,
+  and it says so and changes nothing.</p>
   <p>Holding Alt and Shift together makes an alternative. Alt wins, and the panel says so while you
   are holding them.</p>
 
@@ -461,20 +489,21 @@
   </div>
 
   <h2 id="naming">Naming and tokens</h2>
-  <p><strong>☰ &gt; Settings.</strong> Names are built from tokens, and you can rearrange them or
-  write your own pattern.</p>
-  <p>There is <strong>one row of tokens</strong> for the whole sheet, and it moves to whichever
-  pattern box you are editing &mdash; so it always sits under the thing it is about to type into.
-  The list changes with it: <code>{dimensions}</code> is not offered for a project file, which has
-  no frame size, and <code>{name}</code> is not offered for a sequence, which already starts from
-  its own name.</p>
+  <p><strong>☰ &gt; Settings &rarr; Naming.</strong> There is one row for each way you press:
+  <strong>Click</strong>, <strong>&#8984;-click</strong> (Ctrl-click on Windows) and
+  <strong>Alt-click on Project</strong> (Option-click on a Mac). Each row shows the exact name that
+  press will make. Every row starts closed &mdash; click a row's arrow to open it and change it.</p>
+  <p>Names are built from tokens. Tap one to drop it into the pattern you are editing &mdash; the
+  row of tokens always sits under that box. <code>{dimensions}</code> is not offered for a project
+  file, which has no frame size. A pattern only contains what you put in it, so leave out
+  <code>{name}</code> and the sequence's own name is not in the result.</p>
   <table>
     <tr><th>Token</th><th>Becomes</th></tr>
     <tr><td><code>{name}</code></td><td>The sequence's own name</td></tr>
     <tr><td><code>{version}</code></td><td>v01, v02, v03…</td></tr>
-    <tr><td><code>{project}</code></td><td>The project file's name</td></tr>
-    <tr><td><code>{client}</code></td><td>Whatever you set in Settings</td></tr>
-    <tr><td><code>{initials}</code></td><td>Yours, from Settings</td></tr>
+    <tr><td><code>{project}</code></td><td>The project file's name, unless you type another in the Project box</td></tr>
+    <tr><td><code>{client}</code></td><td>Whatever you type in the Client box</td></tr>
+    <tr><td><code>{initials}</code></td><td>Yours, from the Initials box</td></tr>
     <tr><td><code>{date}</code></td><td>Today, in the order you choose</td></tr>
     <tr><td><code>{time}</code></td><td>The current time</td></tr>
     <tr><td><code>{dimensions}</code></td><td>The sequence's frame size, e.g. <code>1920x1080</code></td></tr>
@@ -487,36 +516,39 @@
 
   <p><code>{dimensions}</code> is the one worth knowing about: a 1080x1920 and a 1920x1080 name
   themselves apart without you typing anything.</p>
-  <p>You can save patterns as presets. Or leave the defaults alone — they are sensible.</p>
+  <p><strong>Save as preset&hellip;</strong> keeps a &#8984;-click pattern by name, and it joins the
+  Click format list for when you want it on a plain click too. Or leave the defaults alone &mdash;
+  they are sensible.</p>
 
   <h2 id="project-naming">Project version names</h2>
   <p>Alternatives of the <em>project file</em> get their own pattern, in the <strong>Project</strong>
-  section of Settings, with the same tokens as above.</p>
+  section of Settings &rarr; Naming, with the same tokens as above.</p>
   <p>Six ready-made presets cover most of it &mdash; <code>ALT + version</code>,
   <code>ALT + date</code>, <code>ALT + date + time</code>, <code>ALT + date + version</code>,
   <code>Name + ALT + version</code>, or the built-in naming. Pick one and the pattern fills itself
   in; edit it afterwards and your edit stands.</p>
   <p><code>{dimensions}</code> is not offered here. A <code>.prproj</code> has no frame size, so a
   token for it would only ever come out blank.</p>
-  <p><strong>Client, Project and Initials are shared</strong> with the sequence pattern. One set of
-  boxes, and they appear as soon as either pattern needs them.</p>
+  <p><strong>Client, Project and Initials live under Name details</strong>, shared by every pattern.
+  Client and Project are saved with each project file; your initials are the same everywhere. A
+  Date row appears there whenever a pattern uses <code>{date}</code> or <code>{time}</code>.</p>
 
   <figure>
-    <img src="assets/settings-sheet.png" alt="The Settings sheet in one column: Version, then Project naming with its row of token buttons, then Archive, Approved, the three option switches, and the Buttons picker. Grey headings with a small symbol each.">
-    <figcaption>In order: the two things you name, the two places things are filed, then the rest.
-      The Buttons section draws the buttons as themselves &mdash; tap the one you do not
-      use.</figcaption>
+    <img src="assets/settings-sheet.png" alt="VersionUp Settings on the Naming tab, with Bins and Panel tabs beside it. The Version section has a Click row showing Brand Film_v04 and an opened ⌘-click row with a custom pattern built from client, date, dimensions and version, a row of token buttons and a Save as preset link. The Project section has an Alt-click row showing ALT_iPhone Promo_30-09-2026. Name details below holds Client Apple, Project iPhone Promo, Initials NK and the date order.">
+    <figcaption>Three tabs: <strong>Naming</strong> for what things are called, <strong>Bins</strong>
+      for where they go, <strong>Panel</strong> for which buttons show. Rest the pointer on
+      anything and the line above Save says what it does.</figcaption>
   </figure>
 
   <h2 id="bins">Bins and colours</h2>
   <p>Call the bins what you already call them. <code>_PREVIOUS</code> and <code>APPROVED</code> are
-  just defaults — change them in Settings and VersionUp uses yours.</p>
+  just defaults — change them in Settings &rarr; Bins and VersionUp uses yours.</p>
   <p>Label colours for archived and approved sequences are yours too, so old versions stay visually
   distinct at a glance in the Project panel.</p>
 
   <h2 id="panel-layout">Hiding buttons and docking</h2>
   <p><strong>Hide the buttons you don&rsquo;t use.</strong> Any of the three, Version up included.
-  Turn one off in Settings and the panel reshapes around what is left &mdash; two side by side, or
+  Turn one off in Settings &rarr; Panel and the panel reshapes around what is left &mdash; two side by side, or
   one taking the whole panel &mdash; with no empty band where a button used to be.</p>
   <p>The last button on cannot be switched off. A panel with nothing on it has no obvious way
   back.</p>
@@ -554,7 +586,7 @@
 
   <div class="note">
     <p><b>Parked as a narrow column beside the timeline is what it was built for.</b> If you only
-    ever use Version up, turn the other two off in Settings and it will happily live in a strip
+    ever use Version up, turn the other two off in Settings &rarr; Panel and it will happily live in a strip
     barely taller than one button &mdash; and if Version up is the one you never press, that can go
     instead.</p>
   </div>
@@ -562,25 +594,28 @@
   <h2 id="licence">Your licence</h2>
   <p>One key, <strong>two machines</strong> — a desktop and a laptop, or a work machine and a home
   one. One payment, no subscription.</p>
-  <p><strong>Changing computer?</strong> Open <strong>☰ &gt; About / Licence</strong> on the machine
+  <p><strong>Changing computer?</strong> Open <strong>☰ &gt; Help &amp; licence</strong> on the machine
   you are leaving behind and press <strong>Remove</strong>. That frees the seat immediately, so you
   can activate the new one straight away.</p>
 
   <figure>
-    <img src="assets/licence-dialog.png" alt="The About and Licence dialog, with the key field and Activate button.">
-    <figcaption><strong>☰ &gt; About / Licence</strong> — paste your key and press Activate.</figcaption>
+    <img src="assets/licence-dialog.png" alt="The Help &amp; licence window: VersionUp version 1.4.13 and up to date, the licence key field with Activate and Remove, a Check for updates button at the bottom, and Help guide and Close buttons.">
+    <figcaption><strong>☰ &gt; Help &amp; licence</strong> — paste your key and press Activate.</figcaption>
   </figure>
 
   <h2 id="updates">Updates</h2>
   <p>VersionUp tells you when there is a new version — a quiet bar at the top of the panel, never a
   nag. Wave it off and it stays out of the way; it will not pester you about the same version twice.</p>
-  <p>Updates are free. Download the new <code>.ccx</code> from your original purchase link, double-click
+  <p>Updates are free. Download the new <code>.ccx</code> from the link in your licence email, double-click
   it, and restart Premiere. Your licence key stays activated.</p>
 
-  <p><strong>☰ &gt; Check for updates</strong> asks straight away, rather than waiting for the daily
-  check. Use it if you have heard a new version is out and the panel has not mentioned it — the
-  automatic check runs at most once a day, so there is a window where a release exists and your copy
-  has not looked yet.</p>
+  <p><strong>☰ &gt; Help &amp; licence</strong> checks straight away, every time you open it, and says
+  under the version number whether you are up to date. Use it if you have heard a new version is out
+  and the panel has not mentioned it — the automatic check runs at most once a day, so there is a
+  window where a release exists and your copy has not looked yet. Press <strong>Check for
+  updates</strong> at the bottom of the window to ask again at any time: the answer appears in its
+  place, telling you whether you're on the latest version, and if there is a newer one it offers
+  <strong>What's new</strong>.</p>
 
   <h2 id="history">Release history</h2>
   <p>Every version, newest first.</p>
@@ -590,7 +625,7 @@
   <div id="releases"><p class="loading">Loading the release history…</p></div>
 
   <h2 id="feedback">Sending feedback</h2>
-  <p><strong>☰ &gt; Submit feedback.</strong> Tell me it's a bug, a feature request or a
+  <p><strong>☰ &gt; Send feedback.</strong> Tell me it's a bug, a feature request or a
   testimonial, write what happened, and press Send. Your email is optional, but without it I
   cannot reply.</p>
 
@@ -603,7 +638,7 @@
          "Check for updates" and showed a menu one item short of the real one —
          a screenshot that disagrees with the panel is worse than none, because
          the reader trusts it and then cannot find what it promised. -->
-    <img src="assets/burger-menu.png" alt="The panel's burger menu open, showing Settings, Tour, Help, Check for updates, Submit feedback and About / Licence.">
+    <img src="assets/burger-menu.png" alt="The panel's burger menu open, showing Tour, Help &amp; licence, and Send feedback, then Settings below a divider.">
     <figcaption>Everything lives in the ☰ menu at the top right of the panel.</figcaption>
   </figure>
 
@@ -636,7 +671,10 @@
 
   <h3>The buttons are greyed out</h3>
   <p>Either there is no licence key activated yet, or there is no project open. Add your key in
-  <strong>&#9776; &gt; About / Licence</strong>.</p>
+  <strong>&#9776; &gt; Help &amp; licence</strong>.</p>
+  <p><strong>Only the Project button is grey?</strong> You are probably in an older project file
+  and a newer one is sitting in the same folder &mdash; see <a href="#guard-project">It watches the
+  project file too</a>. The amber banner at the top of the panel says which file is newer.</p>
   <p><strong>There is no trial or free mode.</strong> Until a key is activated, all three buttons are
   disabled and the panel does nothing &mdash; so if you have just installed it and everything is grey,
   that is the licence, not a fault.</p>
@@ -654,10 +692,10 @@
   it. The panel says so rather than inventing a date. Everything you version from here on will be
   listed.</p>
 
-  <h3>Cmd-click or Shift-click does nothing</h3>
+  <h3>Cmd-click (Ctrl-click on Windows) or Shift-click does nothing</h3>
   <p>Premiere does not pass every modifier key through to a plugin panel on every system. Rest on
   the button first: if the row for that key never lights up while you hold it, the key is not
-  reaching VersionUp. Alt is the reliable one. To show a project in Finder without a key, click its
+  reaching VersionUp. Alt is the reliable one. To show a project&rsquo;s folder without a key, click its
   row in the Versions strip.</p>
 
   <h2 id="limits">What it doesn't do</h2>
@@ -666,13 +704,13 @@
       install it.</li>
     <li><strong>It doesn't sync, share or back anything up.</strong> It renames and moves things
       inside your project.</li>
-    <li><strong>Project versioning can't be undone.</strong> Everything else is a single Cmd+Z.
+    <li><strong>Project versioning can't be undone.</strong> Everything else is a single Undo (Cmd+Z, or Ctrl+Z on Windows).
       VersionUp will at least refuse to write over a project file that already exists.</li>
     <li><strong>It doesn't replace autosave.</strong> Different job entirely.</li>
   </ul>
 
   <h2 id="support">Support</h2>
-  <p>The quickest route is <strong>☰ &gt; Submit feedback</strong> inside the panel — it attaches
+  <p>The quickest route is <strong>☰ &gt; Send feedback</strong> inside the panel — it attaches
   your version and system automatically, which saves us both an email.</p>
   <p>Otherwise: <a href="mailto:support@nkcourses.co.uk">support@nkcourses.co.uk</a>. I am one
   person, so it might take a day, but it will be me answering.</p>
