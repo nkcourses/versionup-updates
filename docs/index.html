@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  VersionUp — help documentation. ONE FILE, NO BUILD STEP.                │
+  │  VersionUp – help documentation. ONE FILE, NO BUILD STEP.                │
   │                                                                          │
   │  Everything is inline: styles, the nav script, the lot. Drop this folder │
-  │  on any static host and it works. That is deliberate — the plugin itself │
+  │  on any static host and it works. That is deliberate – the plugin itself │
   │  has no build step, and a docs site that needs npm to publish a typo fix │
   │  is a docs site that stops getting typo fixes.                           │
   │                                                                          │
@@ -26,17 +26,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VersionUp — Help &amp; Documentation</title>
+<title>VersionUp – Help &amp; Documentation</title>
 <meta name="description" content="User guide for VersionUp, a Premiere Pro panel that versions a sequence in one click, archives the old copy and keeps your bin structure.">
 <link rel="icon" href="assets/versionup-mark-black.png">
-<!-- 🔴 THE CARD A SHARED LINK RENDERS AS — added 23 Aug 2026, having been
+<!-- 🔴 THE CARD A SHARED LINK RENDERS AS – added 23 Aug 2026, having been
      missing entirely. Without og:image, a link pasted into Slack, LinkedIn or
      WhatsApp shows a bare grey box, which reads as a link nobody vouches for.
      ⚠️ ABSOLUTE URLS ONLY. Every scraper fetches these cold, with no page
      context, so a relative path resolves against nothing and the card is blank
      again. -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="VersionUp — version a sequence in one click">
+<meta property="og:title" content="VersionUp – version a sequence in one click">
 <meta property="og:description" content="The old copy is filed away, your folders are rebuilt to match, and your timeline never moves. A Premiere Pro panel.">
 <meta property="og:url" content="https://nkcourses.github.io/versionup-updates/">
 <meta property="og:image" content="https://nkcourses.github.io/versionup-updates/assets/versionup-og.png">
@@ -131,6 +131,17 @@
         border-radius:8px; font-size:14px; font-weight:600; white-space:nowrap}
   .dl a:hover{background:var(--violet-hi); text-decoration:none}
 
+  /* Four ways to click Version up (1 Oct 2026): the button's real glyphs, drawn on the
+     panel's own dark tile so they look like what you see in Premiere. */
+  .vk-wrap{overflow-x:auto}
+  .vk td,.vk th{vertical-align:top}
+  .vk th[scope=row]{white-space:nowrap}
+  .vk-sym{width:64px}
+  .vk-glyph{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;
+    border-radius:12px;background:#1d1d1d;border:2px solid #282828;color:#e6e6ea}
+  .vk-glyph svg{width:30px;height:30px}
+  .vk th small{display:block;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)}
+  .vk-ex code{white-space:nowrap}
   table{width:100%; border-collapse:collapse; margin:18px 0; font-size:15px}
   th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line);
         vertical-align:top}
@@ -185,6 +196,7 @@
 
   <h4>The panel</h4>
   <a href="#version-up">Version up</a>
+  <a href="#four-ways">Four ways to click Version up</a>
   <a href="#selecting">Choosing what to version</a>
   <a href="#approve">Approve</a>
   <a href="#project">Project</a>
@@ -213,7 +225,7 @@
 
 <main>
   <h1>VersionUp</h1>
-  <p class="lede">A Premiere Pro panel that versions a sequence in one click — archives the old
+  <p class="lede">A Premiere Pro panel that versions a sequence in one click – archives the old
   copy, keeps your bin structure, and leaves you working on the sequence you were already on.</p>
 
   <div class="cards">
@@ -226,7 +238,7 @@
   </div>
 
   <h2 id="overview">Overview</h2>
-  <p>Versioning a sequence by hand is four steps — duplicate, rename, drag into a folder, and try to
+  <p>Versioning a sequence by hand is four steps – duplicate, rename, drag into a folder, and try to
   remember which one the client approved. VersionUp does it in one click.</p>
   <p><strong>The part that matters most:</strong> most tools move you onto a new copy and leave you
   hunting for it. VersionUp renames the sequence <em>in your timeline</em> and archives the
@@ -238,17 +250,17 @@
     <figcaption>One click: the old copy is filed away, the live sequence is renamed in place.</figcaption>
   </figure>
 
-  <p><strong>Three buttons, and each one says what it is</strong> — Version up, Approve and Project.
+  <p><strong>Three buttons, and each one says what it is</strong> – Version up, Approve and Project.
   Nothing here needs learning: the words are on the buttons, and resting on one shows you the exact
   name it is about to write.</p>
 
   <h2 id="requirements">Requirements</h2>
   <table>
     <tr><th>Premiere Pro</th><td><strong>25.6 or newer.</strong> Check under
-      <code>Premiere Pro &gt; About Premiere Pro</code>. Earlier versions cannot run it — VersionUp
+      <code>Premiere Pro &gt; About Premiere Pro</code>. Earlier versions cannot run it – VersionUp
       uses Adobe's current plugin system (UXP), and there is no build for older releases.</td></tr>
     <tr><th>System</th><td>macOS or Windows.</td></tr>
-    <tr><th>Licence</th><td>One key covers <strong>two machines</strong> — a desktop and a laptop.</td></tr>
+    <tr><th>Licence</th><td>One key covers <strong>two machines</strong> – a desktop and a laptop.</td></tr>
   </table>
 
   <h2 id="install">Install and activate</h2>
@@ -260,14 +272,14 @@
 
   <p>The short version:</p>
   <ol>
-    <!-- 🔴 "My orders" WAS THE OLD STORE'S PAGE AND IT NO LONGER EXISTS — 21 Aug
+    <!-- 🔴 "My orders" WAS THE OLD STORE'S PAGE AND IT NO LONGER EXISTS – 21 Aug
          2026. Selling direct means there is no vendor portal at all: the key
          email IS the order record, and the download link has to be in it. If
          this step ever tells someone to log in somewhere, it is wrong. -->
     <li>Open the <strong>order email</strong> from NK Courses. It has your licence key and the
       download link.</li>
     <li><strong>Download <code>VersionUp.ccx</code> and double-click it.</strong> Creative Cloud
-      Desktop installs it for you — nothing to unzip.</li>
+      Desktop installs it for you – nothing to unzip.</li>
     <li><strong>Quit Premiere Pro and open it again.</strong> Premiere only looks for new panels at
       startup.</li>
     <li><strong>Window &gt; UXP Plugins &gt; VersionUp.</strong></li>
@@ -275,21 +287,21 @@
       <strong>Activate</strong>.</li>
   </ol>
 
-  <!-- 🔴 THIS REPLACED AN ORDER SCREENSHOT FROM THE OLD STORE — 22 Aug 2026. The old
+  <!-- 🔴 THIS REPLACED AN ORDER SCREENSHOT FROM THE OLD STORE – 22 Aug 2026. The old
        one showed the Files section of a store that was never approved, telling
        every customer to look for a page they cannot reach.
-       ⚠️ THE KEY IN THIS SHOT IS DELIBERATELY A FAKE — NKV-XXXX-XXXX-XXXX, rendered
+       ⚠️ THE KEY IN THIS SHOT IS DELIBERATELY A FAKE – NKV-XXXX-XXXX-XXXX, rendered
        by licence-worker/preview/screenshot.py. Never screenshot a real key: this image is public
        on the help site forever. -->
   <figure>
     <img src="assets/order-email.png" alt="The order email from NK Courses, showing the licence key in a box and a Download VersionUp button.">
-    <figcaption>Your licence key arrives by email from <strong>NK Courses</strong>. Copy it — you
+    <figcaption>Your licence key arrives by email from <strong>NK Courses</strong>. Copy it – you
       will paste it into the panel in step 5.</figcaption>
   </figure>
 
   <figure>
     <img src="assets/window-menu.png" alt="Premiere's Window menu open, showing UXP Plugins and VersionUp.">
-    <figcaption>It is under <strong>Window &gt; UXP Plugins</strong> — not Window &gt; Extensions.</figcaption>
+    <figcaption>It is under <strong>Window &gt; UXP Plugins</strong> – not Window &gt; Extensions.</figcaption>
   </figure>
 
   <div class="note warn">
@@ -310,8 +322,21 @@
   <p>Duplicates the sequence, bumps the number, and files the old copy away with a colour label.
   Four fiddly steps become one.</p>
   <p><strong>Your folder structure is rebuilt inside the archive, not flattened.</strong> A 9x16
-  archived from a 9x16 bin lands in a 9x16 bin inside <code>_PREVIOUS</code> — not in one flat heap
+  archived from a 9x16 bin lands in a 9x16 bin inside <code>_PREVIOUS</code> – not in one flat heap
   at the bottom of the project.</p>
+
+
+  <h2 id="four-ways">Four ways to click Version up</h2>
+  <p>Hold a key as you click and Version up does something different. The symbol on the button
+  changes the moment you hold the key, so you can see which one you are about to get before you
+  press anything.</p>
+  <div class="vk-wrap"><table class="vk">
+    <tr><th>Symbol</th><th>Click</th><th>What it does</th><th>Example</th></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Version up symbol: an arrow pointing up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17.5v3M19 17.5v3M12 21.5v1.5" opacity=".55"/><path d="M12 19V7M12 6l-5 5M12 6l5 5"/></svg></span></td><th scope="row">Click</th><td>The next version. The old one is filed in <code>_PREVIOUS</code> and you stay in the sequence you are cutting.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Alternative symbol: two arrows pointing opposite ways"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h13M13.5 6l3.5 3.5-3.5 3.5"/><path d="M20 16.5H7M10.5 13 7 16.5l3.5 3.5"/></svg></span></td><th scope="row">Alt-click<br><small>Option on a Mac</small></th><td>An alternative. A copy beside the original, filed in an <code>ALT</code> bin and opened. The original is not renamed or moved.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_ALT_v03</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Major version symbol: an arrow rising to a bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8M12 8l-5 5M12 8l5 5M5 4h14"/></svg></span></td><th scope="row">Shift-click</th><td>A new major version, for when the brief changes rather than the trim. The minor number starts again at 1.</td><td class="vk-ex"><code>Cut_v4.4</code> &rarr; <code>Cut_v5.1</code><br><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04.1</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Custom name symbol: an arrow inside curly brackets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5c-1.8 0-2.2 1-2.2 2.6v2.6c0 1.2-.6 2-1.8 2.3 1.2.3 1.8 1.1 1.8 2.3v2.6c0 1.6.4 2.6 2.2 2.6"/><path d="M17 4.5c1.8 0 2.2 1 2.2 2.6v2.6c0 1.2.6 2 1.8 2.3-1.2.3-1.8 1.1-1.8 2.3v2.6c0 1.6-.4 2.6-2.2 2.6"/><path d="M12 16.5V8M12 7.5l-3 3M12 7.5l3 3"/></svg></span></td><th scope="row">Cmd-click<br><small>Ctrl-click on Windows</small></th><td>Your own naming pattern, from Settings &rarr; Naming. The pattern needs <code>{version}</code> in it.</td><td class="vk-ex">Pattern <code>{client}_{project}_{name}_{version}</code>, Client ACME, Project Harbour:<br><code>Brand Film</code> &rarr; <code>ACME_Harbour_Brand Film_v01</code></td></tr>
+  </table></div>
+  <p>Rest on the button for a second and the panel lists all four with the <em>real</em> names it
+  would write for the sequence you have selected, and lights the row for the key you are holding.
+  Holding Alt and Shift together makes an alternative &ndash; Alt wins.</p>
 
   <h2 id="selecting">Choosing what to version</h2>
   <table>
@@ -324,7 +349,7 @@
 
   <h2 id="approve">Approve</h2>
   <p>One click marks the cut the client signed off: moves it into your approved bin, colours it
-  green, and renames it — <code>Brand Film_MASTER</code>. Findable from the Project panel weeks
+  green, and renames it – <code>Brand Film_MASTER</code>. Findable from the Project panel weeks
   later without opening the panel at all.</p>
 
   <figure>
@@ -339,7 +364,7 @@
   not re-moved.</p>
 
   <h2 id="project">Project</h2>
-  <p>Versions the <code>.prproj</code> itself — <code>Job_v01.prproj</code> becomes
+  <p>Versions the <code>.prproj</code> itself – <code>Job_v01.prproj</code> becomes
   <code>Job_v02.prproj</code>, and the new file becomes the one you are working in.</p>
 
   <figure>
@@ -358,10 +383,10 @@
 
   <p>The Project button takes the same modifier keys as Version up, plus one of its own:</p>
   <table>
-    <tr><th>Click</th><td>The next project version &mdash; <code>Job_v03.prproj</code></td></tr>
-    <tr><th>&#8997; Alt-click</th><td>An alternative &mdash; <code>Job_ALT_v03.prproj</code>, beside
+    <tr><th>Click</th><td>The next project version &ndash; <code>Job_v03.prproj</code></td></tr>
+    <tr><th>&#8997; Alt-click</th><td>An alternative &ndash; <code>Job_ALT_v03.prproj</code>, beside
       the original. Also works when the guard is blocking an old project file.</td></tr>
-    <tr><th>&#8679; Shift-click</th><td>A new major &mdash; <code>Job_v04.1.prproj</code></td></tr>
+    <tr><th>&#8679; Shift-click</th><td>A new major &ndash; <code>Job_v04.1.prproj</code></td></tr>
     <tr><th>&#8984; Cmd-click<br>(Ctrl-click on Windows)</th><td>Shows the current project&rsquo;s
       folder. Nothing is written.</td></tr>
   </table>
@@ -388,13 +413,13 @@
   <div class="note">
     <p><b>It only knows what it did itself.</b> A version you made by hand, or one from before you
     installed VersionUp, shows as <em>no record</em> rather than a guess. If a cut merely carries
-    your approved suffix in its name, it gets a tick with no date &mdash; recognised, not
+    your approved suffix in its name, it gets a tick with no date &ndash; recognised, not
     remembered.</p>
   </div>
 
   <p><strong>You can put it away.</strong> Settings &rarr; Panel &rarr; <em>Show version
   history</em>. It is on to start with; turn it off and the strip goes, giving that height back to
-  the buttons &mdash; useful if you keep the panel docked short. Nothing is forgotten: VersionUp
+  the buttons &ndash; useful if you keep the panel docked short. Nothing is forgotten: VersionUp
   carries on recording, and switching it back on shows everything it made while the strip was
   hidden.</p>
 
@@ -404,7 +429,7 @@
 
   <figure>
     <img src="assets/stale-guard-demo.gif" alt="An amber banner appears when an older version of a sequence is opened, offering to jump to the latest.">
-    <figcaption>The expensive mistake is not losing a file — it is not noticing.</figcaption>
+    <figcaption>The expensive mistake is not losing a file – it is not noticing.</figcaption>
   </figure>
 
   <h3 id="guard-project">It watches the project file too</h3>
@@ -412,7 +437,7 @@
   the same folder, and the same amber banner says so: <em>You&rsquo;re in Job_v02.prproj.
   Job_v04.prproj is newer.</em></p>
   <p><strong>Show folder</strong> opens the folder the newer file is in and copies its full path to
-  your clipboard, so you can open it straight away. VersionUp does not open it for you &mdash; it
+  your clipboard, so you can open it straight away. VersionUp does not open it for you &ndash; it
   shows you where it is.</p>
   <p>While you are in the older file, the <strong>Project</strong> button won&rsquo;t version it.
   If you really do mean to work from the old one, <strong>Alt-click</strong> Project to branch an
@@ -420,7 +445,7 @@
 
   <figure>
     <img src="assets/wrong-project-demo.gif" alt="An older project file is open. An amber banner names the newer file, the Project button refuses, and Show folder reveals the newer file with its path copied.">
-    <figcaption>Only the Project button is held back &mdash; Version up and Approve still work.</figcaption>
+    <figcaption>Only the Project button is held back &ndash; Version up and Approve still work.</figcaption>
   </figure>
 
   <p>Both checks follow one switch: Settings &rarr; Panel &rarr; <em>Block VersionUp on an old
@@ -428,18 +453,18 @@
   blocked.</p>
 
   <h2 id="alt">Alt-click: an alternative</h2>
-  <p><strong>Hold Alt &mdash; Option on a Mac &mdash; and click Version up.</strong> Instead of advancing
+  <p><strong>Hold Alt &ndash; Option on a Mac &ndash; and click Version up.</strong> Instead of advancing
   the version, VersionUp makes a copy, <code>Brand Film_ALT_v03</code>, files it in an
   <code>ALT</code> bin and opens it, so you carry on in it. The original is not renamed and not
   moved.</p>
   <p>For the version of a cut you want to try without giving up the one you have.</p>
-  <p><strong>Alt-click Project</strong> does the same thing to the project file &mdash;
+  <p><strong>Alt-click Project</strong> does the same thing to the project file &ndash;
   <code>Job_ALT_v03.prproj</code> beside the original. <em>Showing the project&rsquo;s folder moved to
   <strong>&#8984; Cmd-click</strong> (Ctrl-click on Windows)</em> so that Alt could mean the same
   thing on every button.</p>
 
-  <p>Rest on any button for a second and the panel shows you what each key does &mdash; with the
-  real name it would write, not a placeholder &mdash; and lights the row for the key you are
+  <p>Rest on any button for a second and the panel shows you what each key does &ndash; with the
+  real name it would write, not a placeholder &ndash; and lights the row for the key you are
   actually holding.</p>
 
   <figure>
@@ -451,13 +476,13 @@
   <div class="note">
     <p><b>If a row never lights up, that key is not reaching the panel.</b> Alt is the one to rely
     on. Premiere does not always pass Cmd and Shift through to a plugin panel, so the panel still
-    lists them but cannot promise them on every system &mdash; and showing a project&rsquo;s folder
+    lists them but cannot promise them on every system &ndash; and showing a project&rsquo;s folder
     is also one click on its row in the Versions strip, with no key held at all.</p>
   </div>
 
   <h2 id="major">Shift-click: a major version</h2>
   <p><strong>Hold Shift and click Version up.</strong> <code>Cut_v4.4</code> becomes
-  <code>Cut_v5.1</code> instead of <code>Cut_v4.5</code> &mdash; a new major version, with the minor
+  <code>Cut_v5.1</code> instead of <code>Cut_v4.5</code> &ndash; a new major version, with the minor
   number back at 1.</p>
   <p>For the cut that has been through four rounds of notes and is now a different edit, rather than
   the next revision of the same one.</p>
@@ -465,7 +490,7 @@
   becomes <code>Brand Film_v04.1</code>, and ordinary clicks after that run <code>v04.2</code>,
   <code>v04.3</code> and so on.</p>
   <p><strong>It works whatever naming format you use.</strong> With a custom pattern, Shift keeps the
-  name you have and raises its number &mdash; <code>Brand Film_v03</code> becomes
+  name you have and raises its number &ndash; <code>Brand Film_v03</code> becomes
   <code>Brand Film_v04.1</code>. The only name it can't raise is one with no version number in it,
   and it says so and changes nothing.</p>
   <p>Holding Alt and Shift together makes an alternative. Alt wins, and the panel says so while you
@@ -478,13 +503,13 @@
 
   <figure>
     <img src="assets/working-state.png" alt="The same panel twice. On the left, Version up at rest with a count of three. On the right, the same button greyed and reading WORKING, with the count still visible.">
-    <figcaption>The button wears the same greys as a button you cannot press &mdash; because for
+    <figcaption>The button wears the same greys as a button you cannot press &ndash; because for
       those few seconds, you cannot.</figcaption>
   </figure>
 
   <div class="note">
     <p><b>It does not spin, and that is deliberate.</b> Premiere stops the panel completely while it
-    duplicates and saves &mdash; nothing in it can move, including a spinner. A frozen animation
+    duplicates and saves &ndash; nothing in it can move, including a spinner. A frozen animation
     reads as a crash; a button that plainly says it is working does not.</p>
   </div>
 
@@ -492,8 +517,8 @@
   <p><strong>☰ &gt; Settings &rarr; Naming.</strong> There is one row for each way you press:
   <strong>Click</strong>, <strong>&#8984;-click</strong> (Ctrl-click on Windows) and
   <strong>Alt-click on Project</strong> (Option-click on a Mac). Each row shows the exact name that
-  press will make. Every row starts closed &mdash; click a row's arrow to open it and change it.</p>
-  <p>Names are built from tokens. Tap one to drop it into the pattern you are editing &mdash; the
+  press will make. Every row starts closed &ndash; click a row's arrow to open it and change it.</p>
+  <p>Names are built from tokens. Tap one to drop it into the pattern you are editing &ndash; the
   row of tokens always sits under that box. <code>{dimensions}</code> is not offered for a project
   file, which has no frame size. A pattern only contains what you put in it, so leave out
   <code>{name}</code> and the sequence's own name is not in the result.</p>
@@ -517,13 +542,13 @@
   <p><code>{dimensions}</code> is the one worth knowing about: a 1080x1920 and a 1920x1080 name
   themselves apart without you typing anything.</p>
   <p><strong>Save as preset&hellip;</strong> keeps a &#8984;-click pattern by name, and it joins the
-  Click format list for when you want it on a plain click too. Or leave the defaults alone &mdash;
+  Click format list for when you want it on a plain click too. Or leave the defaults alone &ndash;
   they are sensible.</p>
 
   <h2 id="project-naming">Project version names</h2>
   <p>Alternatives of the <em>project file</em> get their own pattern, in the <strong>Project</strong>
   section of Settings &rarr; Naming, with the same tokens as above.</p>
-  <p>Six ready-made presets cover most of it &mdash; <code>ALT + version</code>,
+  <p>Six ready-made presets cover most of it &ndash; <code>ALT + version</code>,
   <code>ALT + date</code>, <code>ALT + date + time</code>, <code>ALT + date + version</code>,
   <code>Name + ALT + version</code>, or the built-in naming. Pick one and the pattern fills itself
   in; edit it afterwards and your edit stands.</p>
@@ -542,22 +567,22 @@
 
   <h2 id="bins">Bins and colours</h2>
   <p>Call the bins what you already call them. <code>_PREVIOUS</code> and <code>APPROVED</code> are
-  just defaults — change them in Settings &rarr; Bins and VersionUp uses yours.</p>
+  just defaults – change them in Settings &rarr; Bins and VersionUp uses yours.</p>
   <p>Label colours for archived and approved sequences are yours too, so old versions stay visually
   distinct at a glance in the Project panel.</p>
 
   <h2 id="panel-layout">Hiding buttons and docking</h2>
   <p><strong>Hide the buttons you don&rsquo;t use.</strong> Any of the three, Version up included.
-  Turn one off in Settings &rarr; Panel and the panel reshapes around what is left &mdash; two side by side, or
-  one taking the whole panel &mdash; with no empty band where a button used to be.</p>
+  Turn one off in Settings &rarr; Panel and the panel reshapes around what is left &ndash; two side by side, or
+  one taking the whole panel &ndash; with no empty band where a button used to be.</p>
   <p>The last button on cannot be switched off. A panel with nothing on it has no obvious way
   back.</p>
-  <p><strong>It fits any dock.</strong> Four layouts, and you never choose between them — the panel
+  <p><strong>It fits any dock.</strong> Four layouts, and you never choose between them – the panel
   picks whichever one fits as you drag it.</p>
 
   <figure>
     <img src="assets/docking-layouts.png" alt="The VersionUp panel drawn at four dock sizes: a narrow vertical strip showing three full-width bars with icons only; docked as a column showing two named buttons and a project bar; docked short showing three named buttons across one row; and a shallow strip showing three small icon-only buttons.">
-    <figcaption>The same panel, four docks. Nothing is configured — it reflows on its own.</figcaption>
+    <figcaption>The same panel, four docks. Nothing is configured – it reflows on its own.</figcaption>
   </figure>
 
   <ul>
@@ -567,14 +592,14 @@
     <li><strong>Three full-width bars.</strong> Docked as a narrow vertical strip beside your
       timeline, each button takes the whole width with its name beside the symbol, rather than three
       squares squeezing across.</li>
-    <li><strong>Three across in one row.</strong> Wide but short — no room for the bar as well as
+    <li><strong>Three across in one row.</strong> Wide but short – no room for the bar as well as
       the buttons, so Project joins the other two as a third named tile.</li>
-    <li><strong>Icons only.</strong> Squeeze past either of those and the words step aside — all
-      three together, never some of them — leaving the symbols.</li>
+    <li><strong>Icons only.</strong> Squeeze past either of those and the words step aside – all
+      three together, never some of them – leaving the symbols.</li>
   </ul>
 
   <p><strong>There is a floor.</strong> Below the width at which a button can still hold its symbol,
-  the buttons do not keep shrinking — they step aside too, and the panel shows <span
+  the buttons do not keep shrinking – they step aside too, and the panel shows <span
   aria-hidden="true">&#8596;</span> <strong>WIDER</strong> until you give it room again. Nothing is
   lost and nothing is switched off; drag the edge back and the buttons return exactly as they
   were.</p>
@@ -587,12 +612,12 @@
   <div class="note">
     <p><b>Parked as a narrow column beside the timeline is what it was built for.</b> If you only
     ever use Version up, turn the other two off in Settings &rarr; Panel and it will happily live in a strip
-    barely taller than one button &mdash; and if Version up is the one you never press, that can go
+    barely taller than one button &ndash; and if Version up is the one you never press, that can go
     instead.</p>
   </div>
 
   <h2 id="licence">Your licence</h2>
-  <p>One key, <strong>two machines</strong> — a desktop and a laptop, or a work machine and a home
+  <p>One key, <strong>two machines</strong> – a desktop and a laptop, or a work machine and a home
   one. One payment, no subscription.</p>
   <p><strong>Changing computer?</strong> Open <strong>☰ &gt; Help &amp; licence</strong> on the machine
   you are leaving behind and press <strong>Remove</strong>. That frees the seat immediately, so you
@@ -600,18 +625,18 @@
 
   <figure>
     <img src="assets/licence-dialog.png" alt="The Help &amp; licence window: VersionUp version 1.4.13 and up to date, the licence key field with Activate and Remove, a Check for updates button at the bottom, and Help guide and Close buttons.">
-    <figcaption><strong>☰ &gt; Help &amp; licence</strong> — paste your key and press Activate.</figcaption>
+    <figcaption><strong>☰ &gt; Help &amp; licence</strong> – paste your key and press Activate.</figcaption>
   </figure>
 
   <h2 id="updates">Updates</h2>
-  <p>VersionUp tells you when there is a new version — a quiet bar at the top of the panel, never a
+  <p>VersionUp tells you when there is a new version – a quiet bar at the top of the panel, never a
   nag. Wave it off and it stays out of the way; it will not pester you about the same version twice.</p>
   <p>Updates are free. Download the new <code>.ccx</code> from the link in your licence email, double-click
   it, and restart Premiere. Your licence key stays activated.</p>
 
   <p><strong>☰ &gt; Help &amp; licence</strong> checks straight away, every time you open it, and says
   under the version number whether you are up to date. Use it if you have heard a new version is out
-  and the panel has not mentioned it — the automatic check runs at most once a day, so there is a
+  and the panel has not mentioned it – the automatic check runs at most once a day, so there is a
   window where a release exists and your copy has not looked yet. Press <strong>Check for
   updates</strong> at the bottom of the window to ask again at any time: the answer appears in its
   place, telling you whether you're on the latest version, and if there is a newer one it offers
@@ -635,20 +660,20 @@
 
   <figure>
     <!-- ⚠️ RETAKE THIS WHENEVER A MENU ITEM IS ADDED. The previous shot predated
-         "Check for updates" and showed a menu one item short of the real one —
+         "Check for updates" and showed a menu one item short of the real one –
          a screenshot that disagrees with the panel is worse than none, because
          the reader trusts it and then cannot find what it promised. -->
     <img src="assets/burger-menu.png" alt="The panel's burger menu open, showing Tour, Help &amp; licence, and Send feedback, then Settings below a divider.">
     <figcaption>Everything lives in the ☰ menu at the top right of the panel.</figcaption>
   </figure>
 
-  <p>One report per thing, please. And if something happens twice, say so — knowing a fault is
+  <p>One report per thing, please. And if something happens twice, say so – knowing a fault is
   repeatable is worth more than a long description of it.</p>
 
   <h2 id="privacy">What is and isn't collected</h2>
   <div class="note">
     <p><b>VersionUp does not collect or transmit any project data, file names, or usage data.</b>
-    Feedback is sent only when you click Send — it includes your message, your optional email, your
+    Feedback is sent only when you click Send – it includes your message, your optional email, your
     operating system and the app version.</p>
   </div>
   <p>Nothing is sent in the background, and nothing about your projects, sequences, bins or clients
@@ -661,34 +686,34 @@
   <p>Open Creative Cloud Desktop first, then double-click the file again.</p>
 
   <h3>VersionUp isn't in the Window menu</h3>
-  <p>Check <code>Premiere Pro &gt; About Premiere Pro</code> — VersionUp needs <strong>25.6 or
+  <p>Check <code>Premiere Pro &gt; About Premiere Pro</code> – VersionUp needs <strong>25.6 or
   newer</strong>. And look under <strong>Window &gt; UXP Plugins</strong>, not Window &gt;
   Extensions; that menu is for the older kind of plugin.</p>
 
   <h3>My licence key was refused</h3>
-  <p>Re-copy it — a trailing space is the usual culprit. If you have used both machines, press
+  <p>Re-copy it – a trailing space is the usual culprit. If you have used both machines, press
   <strong>Remove</strong> on one you no longer use to free the seat.</p>
 
   <h3>The buttons are greyed out</h3>
   <p>Either there is no licence key activated yet, or there is no project open. Add your key in
   <strong>&#9776; &gt; Help &amp; licence</strong>.</p>
   <p><strong>Only the Project button is grey?</strong> You are probably in an older project file
-  and a newer one is sitting in the same folder &mdash; see <a href="#guard-project">It watches the
+  and a newer one is sitting in the same folder &ndash; see <a href="#guard-project">It watches the
   project file too</a>. The amber banner at the top of the panel says which file is newer.</p>
   <p><strong>There is no trial or free mode.</strong> Until a key is activated, all three buttons are
-  disabled and the panel does nothing &mdash; so if you have just installed it and everything is grey,
+  disabled and the panel does nothing &ndash; so if you have just installed it and everything is grey,
   that is the licence, not a fault.</p>
 
   <h3>Nothing happened when I pressed a button</h3>
-  <p>If the button is greyed and reads <strong>WORKING&hellip;</strong>, it is running &mdash; give
+  <p>If the button is greyed and reads <strong>WORKING&hellip;</strong>, it is running &ndash; give
   it a moment. Premiere stops the panel while it saves, so nothing on screen can move until it is
   done.</p>
-  <p>Otherwise, open the log at the bottom of the panel &mdash; it says what ran and what it did. If
+  <p>Otherwise, open the log at the bottom of the panel &ndash; it says what ran and what it did. If
   the button was greyed out before you pressed it, either nothing was selected, or a newer version
   of that sequence already exists and VersionUp is refusing to branch off an old one.</p>
 
   <h3>The Versions list says &ldquo;no record&rdquo;</h3>
-  <p>That version was not made by VersionUp &mdash; renamed by hand, or made before you installed
+  <p>That version was not made by VersionUp &ndash; renamed by hand, or made before you installed
   it. The panel says so rather than inventing a date. Everything you version from here on will be
   listed.</p>
 
@@ -710,7 +735,7 @@
   </ul>
 
   <h2 id="support">Support</h2>
-  <p>The quickest route is <strong>☰ &gt; Send feedback</strong> inside the panel — it attaches
+  <p>The quickest route is <strong>☰ &gt; Send feedback</strong> inside the panel – it attaches
   your version and system automatically, which saves us both an email.</p>
   <p>Otherwise: <a href="mailto:support@nkcourses.co.uk">support@nkcourses.co.uk</a>. I am one
   person, so it might take a day, but it will be me answering.</p>
@@ -747,7 +772,7 @@
   });
 
   /* ------------------------------------------------------------------------
-     RELEASE HISTORY — reads the repository's own releases at page load.
+     RELEASE HISTORY – reads the repository's own releases at page load.
 
      🔴 THERE IS NO PUBLISHING STEP FOR THIS SECTION, AND THERE MUST NEVER BE.
      The chain already exists: commit updates.json -> the release Action builds
@@ -771,7 +796,7 @@
     }
 
     /* Release bodies are written by us, in one shape: a headline line, then
-       "- " bullets. This renders that shape and nothing else — a real Markdown
+       "- " bullets. This renders that shape and nothing else – a real Markdown
        parser would be forty times the code for no visible gain. Everything is
        escaped first, so a stray < in a release note cannot break the page. */
     function md(src) {
@@ -784,7 +809,7 @@
         var line = raw.trim();
         /* 🔴 Skip headings. The Action's own bodies have none, but the manual
            fallback in docs/publishing-an-update.md says to paste
-           dist/release-notes.md — and that file opens with "## VersionUp 1.2.3".
+           dist/release-notes.md – and that file opens with "## VersionUp 1.2.3".
            Without this, one hand-made release renders a literal "##" on the
            page. The card header already shows the version and the date. */
         if (/^#{1,6}\s/.test(line)) {
@@ -803,7 +828,7 @@
     }
 
     /* Every release body ends with the same "how to update" paragraph, which is
-       right for the release page and pure noise repeated twenty times here —
+       right for the release page and pure noise repeated twenty times here –
        the section above already says it once. Coupled to the Action's wording;
        if that changes, the paragraph simply reappears. Nothing breaks. */
     function trim(body) {
@@ -847,7 +872,7 @@
         var rels = [].concat(all).filter(function (r) { return r && !r.draft; });
         try {
           sessionStorage.setItem(KEY, JSON.stringify({ at: Date.now(), data: rels }));
-        } catch (e) { /* storage full or blocked — the page still works. */ }
+        } catch (e) { /* storage full or blocked – the page still works. */ }
         draw(rels);
       })
       .catch(fail);
