@@ -175,6 +175,9 @@
     main{padding-top:24px}
     h1{font-size:32px}
   }
+  /* Install commands: wrap anywhere, one click selects the lot. */
+  code.cmd{display:block; margin:8px 0 14px; padding:10px 12px; line-height:1.5;
+    white-space:pre-wrap; overflow-wrap:anywhere; user-select:all}
 </style>
 </head>
 <body>
@@ -260,7 +263,7 @@
       <code>Premiere Pro &gt; About Premiere Pro</code>. Earlier versions cannot run it – VersionUp
       uses Adobe's current plugin system (UXP), and there is no build for older releases.</td></tr>
     <tr><th>System</th><td>macOS or Windows.</td></tr>
-    <tr><th>Licence</th><td>One key covers <strong>two machines</strong> – a desktop and a laptop.</td></tr>
+    <tr><th>Licence</th><td>One key covers <strong>two machines</strong> – a desktop and a laptop. A Studio key covers <strong>ten</strong>.</td></tr>
   </table>
 
   <h2 id="install">Install and activate</h2>
@@ -306,7 +309,8 @@
 
   <div class="note warn">
     <p><b>Double-clicking did nothing?</b> Open Creative Cloud Desktop first, then double-click the
-    file again.</p>
+    file again. Still nothing, or a message saying Creative Cloud cannot open it?
+    <a href="#install-fallback">Install it from Terminal or Command Prompt</a> instead.</p>
   </div>
 
   <h2 id="quick-start">Quick start</h2>
@@ -619,6 +623,9 @@
   <h2 id="licence">Your licence</h2>
   <p>One key, <strong>two machines</strong> – a desktop and a laptop, or a work machine and a home
   one. One payment, no subscription.</p>
+  <p><strong>Studio licence:</strong> one key for up to <strong>ten machines</strong>, for a team or an
+  edit suite. Everyone activates the same key the same way, and the Help &amp; licence window shows
+  how many of the ten are in use. Remove works exactly as below.</p>
   <p><strong>Changing computer?</strong> Open <strong>☰ &gt; Help &amp; licence</strong> on the machine
   you are leaving behind and press <strong>Remove</strong>. That frees the seat immediately, so you
   can activate the new one straight away.</p>
@@ -682,8 +689,21 @@
 
   <h2 id="troubleshooting">Troubleshooting</h2>
 
-  <h3>Double-clicking the .ccx did nothing</h3>
-  <p>Open Creative Cloud Desktop first, then double-click the file again.</p>
+  <h3 id="install-fallback">Double-clicking the .ccx did nothing, or said &ldquo;Creative Cloud cannot open files of this type&rdquo;</h3>
+  <p>Creative Cloud Desktop has to be installed and signed in. <strong>Open it first, then
+  double-click the file again.</strong> That fixes most cases.</p>
+  <p>Still not working? Your Mac or PC has lost track of which Adobe app opens .ccx files. Nothing is
+  wrong with the file. Install it with Adobe&rsquo;s own plugin installer instead, the same one
+  Creative Cloud uses behind the scenes. Quit Premiere first.</p>
+  <p><strong>Mac:</strong> open <em>Terminal</em> (Applications &gt; Utilities), paste this, type a
+  space, then drag <code>VersionUp.ccx</code> into the Terminal window and press Return:</p>
+  <code class="cmd">"/Library/Application Support/Adobe/Adobe Desktop Common/RemoteComponents/UPI/UnifiedPluginInstallerAgent/UnifiedPluginInstallerAgent.app/Contents/MacOS/UnifiedPluginInstallerAgent" --install</code>
+  <p><strong>Windows:</strong> open <em>Command Prompt</em> (not PowerShell), paste this, type a
+  space, then drag <code>VersionUp.ccx</code> into the window and press Enter:</p>
+  <code class="cmd">"C:\Program Files\Common Files\Adobe\Adobe Desktop Common\RemoteComponents\UPI\UnifiedPluginInstallerAgent\UnifiedPluginInstallerAgent.exe" /install</code>
+  <p>Dragging the file in types its exact location for you, wherever it was saved. When it finishes,
+  restart Premiere and look under <strong>Window &gt; UXP Plugins</strong>. Still stuck?
+  <a href="mailto:support@nkcourses.co.uk">Email me</a> and I will sort it with you.</p>
 
   <h3>VersionUp isn't in the Window menu</h3>
   <p>Check <code>Premiere Pro &gt; About Premiere Pro</code> – VersionUp needs <strong>25.6 or
