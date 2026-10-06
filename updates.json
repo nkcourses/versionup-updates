@@ -1,10 +1,13 @@
 {
-  "latest": "1.4.14",
-  "released": "2026-09-30",
-  "headline": "See at a glance whether you're looking at sequence versions or project versions.",
+  "latest": "1.4.15",
+  "released": "2026-10-06",
+  "headline": "Fixes a stuck layout, and a clearer tour.",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "**Versions always shows two tabs, Sequence and Project,** each with its own count. The number used to sit on its own, so \"3\" could mean either; now it sits in the tab it counts",
-    "An empty tab says so, instead of quietly showing the other list"
+    "Fixed: after closing the tour or resizing the panel, the buttons could get stuck as small icon-only tiles with empty space below. The panel now switches back to the full layout by itself",
+    "The tour shows Alt-click, Shift-click and Cmd-click (Ctrl-click on Windows) on their own lines, in bold, and points out the Versions list",
+    "In Settings > Naming, each shortcut row now says what it does: next version, custom name, alternative",
+    "Fixed: a custom pattern using {project} could give two version numbers (VersionUp_v8_v5). {project} now fills in with your project's name without its version number",
+    "\"Name details\" in Settings is now called \"Project name\""
   ]
 }
