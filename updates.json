@@ -1,13 +1,15 @@
 {
-  "latest": "1.4.15",
-  "released": "2026-10-06",
-  "headline": "Fixes a stuck layout, and a clearer tour.",
+  "latest": "1.4.16",
+  "released": "2026-10-07",
+  "headline": "Smarter naming, and approved cuts left alone.",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "Fixed: after closing the tour or resizing the panel, the buttons could get stuck as small icon-only tiles with empty space below. The panel now switches back to the full layout by itself",
-    "The tour shows Alt-click, Shift-click and Cmd-click (Ctrl-click on Windows) on their own lines, in bold, and points out the Versions list",
-    "In Settings > Naming, each shortcut row now says what it does: next version, custom name, alternative",
-    "Fixed: a custom pattern using {project} could give two version numbers (VersionUp_v8_v5). {project} now fills in with your project's name without its version number",
-    "\"Name details\" in Settings is now called \"Project name\""
+    "Names like v1_WIP01 now version to v1_WIP02 (REV, R and DRAFT work the same way) instead of getting _001 added on the end",
+    "Versioning an approved cut leaves it untouched in your approved bin, and puts the new version back in your working folder",
+    "Select a sequence in the Project panel to see all its versions, not only the one in the timeline – including versions made on another computer",
+    "Dates can now be written year first (2026-10-07), the only order that sorts by date in a bin",
+    "Settings > Naming: open the Click row to see examples of what a version up does with your settings",
+    "Fixed: a sequence's version history could disappear after the project was saved under a new name",
+    "Fixed: a small gap beside the Sequence tab when nothing was counted"
   ]
 }
