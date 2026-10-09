@@ -336,7 +336,7 @@
   press anything.</p>
   <div class="vk-wrap"><table class="vk">
     <tr><th>Symbol</th><th>Click</th><th>What it does</th><th>Example</th></tr>
-    <tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Version up symbol: an arrow pointing up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17.5v3M19 17.5v3M12 21.5v1.5" opacity=".55"/><path d="M12 19V7M12 6l-5 5M12 6l5 5"/></svg></span></td><th scope="row">Click</th><td>The next version. The old one is filed in <code>_PREVIOUS</code> and you stay in the sequence you are cutting.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Alternative symbol: two arrows pointing opposite ways"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h13M13.5 6l3.5 3.5-3.5 3.5"/><path d="M20 16.5H7M10.5 13 7 16.5l3.5 3.5"/></svg></span></td><th scope="row">Alt-click<br><small>Option on a Mac</small></th><td>An alternative. A copy beside the original, filed in an <code>ALT</code> bin and opened. The original is not renamed or moved.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_ALT_v03</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Major version symbol: an arrow rising to a bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8M12 8l-5 5M12 8l5 5M5 4h14"/></svg></span></td><th scope="row">Shift-click</th><td>A new major version, for when the brief changes rather than the trim. The minor number starts again at 1.</td><td class="vk-ex"><code>Cut_v4.4</code> &rarr; <code>Cut_v5.1</code><br><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04.1</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Custom name symbol: an arrow inside curly brackets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5c-1.8 0-2.2 1-2.2 2.6v2.6c0 1.2-.6 2-1.8 2.3 1.2.3 1.8 1.1 1.8 2.3v2.6c0 1.6.4 2.6 2.2 2.6"/><path d="M17 4.5c1.8 0 2.2 1 2.2 2.6v2.6c0 1.2.6 2 1.8 2.3-1.2.3-1.8 1.1-1.8 2.3v2.6c0 1.6-.4 2.6-2.2 2.6"/><path d="M12 16.5V8M12 7.5l-3 3M12 7.5l3 3"/></svg></span></td><th scope="row">Cmd-click<br><small>Ctrl-click on Windows</small></th><td>Your own naming pattern, from Settings &rarr; Naming. The pattern needs <code>{version}</code> in it.</td><td class="vk-ex">Pattern <code>{client}_{project}_{name}_{version}</code>, Client ACME, Project Harbour:<br><code>Brand Film</code> &rarr; <code>ACME_Harbour_Brand Film_v01</code></td></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Version up symbol: an arrow pointing up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17.5v3M19 17.5v3M12 21.5v1.5" opacity=".55"/><path d="M12 19V7M12 6l-5 5M12 6l5 5"/></svg></span></td><th scope="row">Click</th><td>The next version. The old one is filed in <code>_PREVIOUS</code> and you stay in the sequence you are cutting.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Alternative symbol: two arrows pointing opposite ways"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h13M13.5 6l3.5 3.5-3.5 3.5"/><path d="M20 16.5H7M10.5 13 7 16.5l3.5 3.5"/></svg></span></td><th scope="row">Alt-click<br><small>Option on a Mac</small></th><td>An alternative. A copy beside the original, filed in an <code>ALT</code> bin and opened. The original is not renamed or moved. In Settings it can keep the version, as here, or move on one (<code>ALT_v04</code>).</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_ALT_v03</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Major version symbol: an arrow rising to a bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8M12 8l-5 5M12 8l5 5M5 4h14"/></svg></span></td><th scope="row">Shift-click</th><td>A new major version, for when the brief changes rather than the trim. The number after the dot resets to 0 (or 1, if you choose that in Settings).</td><td class="vk-ex"><code>Cut_v4.4</code> &rarr; <code>Cut_v5.0</code><br><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04.0</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Custom name symbol: an arrow inside curly brackets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5c-1.8 0-2.2 1-2.2 2.6v2.6c0 1.2-.6 2-1.8 2.3 1.2.3 1.8 1.1 1.8 2.3v2.6c0 1.6.4 2.6 2.2 2.6"/><path d="M17 4.5c1.8 0 2.2 1 2.2 2.6v2.6c0 1.2.6 2 1.8 2.3-1.2.3-1.8 1.1-1.8 2.3v2.6c0 1.6-.4 2.6-2.2 2.6"/><path d="M12 16.5V8M12 7.5l-3 3M12 7.5l3 3"/></svg></span></td><th scope="row">Cmd-click<br><small>Ctrl-click on Windows</small></th><td>Your own naming pattern, from Settings &rarr; Buttons. The pattern needs <code>{version}</code> in it.</td><td class="vk-ex">Pattern <code>{client}_{project}_{name}_{version}</code>, Client ACME, Project Harbour:<br><code>Brand Film</code> &rarr; <code>ACME_Harbour_Brand Film_v01</code></td></tr>
   </table></div>
   <p>Rest on the button for a second and the panel lists all four with the <em>real</em> names it
   would write for the sequence you have selected, and lights the row for the key you are holding.
@@ -518,14 +518,19 @@
   </div>
 
   <h2 id="naming">Naming and tokens</h2>
-  <p><strong>☰ &gt; Settings &rarr; Naming.</strong> There is one row for each way you press:
-  <strong>Click</strong>, <strong>&#8984;-click</strong> (Ctrl-click on Windows) and
-  <strong>Alt-click on Project</strong> (Option-click on a Mac). Each row shows the exact name that
-  press will make. Every row starts closed &ndash; click a row's arrow to open it and change it.</p>
+  <p><strong>☰ &gt; Settings &rarr; Buttons.</strong> <strong>Pick a button</strong> (Version up,
+  Approve or Project), then <strong>pick a key</strong>: a plain click, or a key held as you click
+  (Option, Shift or Cmd on a Mac; Alt, Shift or Ctrl on Windows). The panel underneath shows
+  that press's settings and, under <strong>Makes</strong>, the exact name it will give.</p>
   <p>Names are built from tokens. Tap one to drop it into the pattern you are editing &ndash; the
-  row of tokens always sits under that box. <code>{dimensions}</code> is not offered for a project
-  file, which has no frame size. A pattern only contains what you put in it, so leave out
-  <code>{name}</code> and the sequence's own name is not in the result.</p>
+  row of tokens always sits under that box. A token already in the pattern turns purple; tap it
+  again to take it out, since each one can only be used once. If a pattern uses a client, project
+  or initials that is not filled in, its token turns red and a line under it says so.
+  <code>{dimensions}</code> is not offered for a project file, which has no frame size. A pattern
+  only contains what you put in it, so leave out <code>{name}</code> and the sequence's own name is
+  not in the result.</p>
+  <p>Choosing <strong>Custom</strong> as Version up's Format opens the same pattern as
+  &#8984;-click right there, so a plain click and &#8984;-click share one pattern.</p>
   <table>
     <tr><th>Token</th><th>Becomes</th></tr>
     <tr><td><code>{name}</code></td><td>The sequence's own name</td></tr>
@@ -551,28 +556,35 @@
 
   <h2 id="project-naming">Project version names</h2>
   <p>Alternatives of the <em>project file</em> get their own pattern, in the <strong>Project</strong>
-  section of Settings &rarr; Naming, with the same tokens as above.</p>
-  <p>Six ready-made presets cover most of it &ndash; <code>ALT + version</code>,
-  <code>ALT + date</code>, <code>ALT + date + time</code>, <code>ALT + date + version</code>,
-  <code>Name + ALT + version</code>, or the built-in naming. Pick one and the pattern fills itself
-  in; edit it afterwards and your edit stands.</p>
+  section of Settings &rarr; Buttons, with the same tokens as above.</p>
+  <p>Ready-made presets cover most of it &ndash; <code>ALT + same version</code>,
+  <code>ALT + next version</code>, <code>ALT + date</code>, <code>ALT + date + time</code>,
+  <code>ALT + date + version</code>, or the built-in naming. Each keeps the project's name first
+  with ALT just before the version, so <code>Job_v08</code> gives <code>Job_ALT_v08</code> (or
+  <code>Job_ALT_v09</code> with next version). Pick one and the pattern fills itself in; edit it
+  afterwards and your edit stands.</p>
   <p><code>{dimensions}</code> is not offered here. A <code>.prproj</code> has no frame size, so a
   token for it would only ever come out blank.</p>
-  <p><strong>Client, Project and Initials live under Name details</strong>, shared by every pattern.
-  Client and Project are saved with each project file; your initials are the same everywhere. A
-  Date row appears there whenever a pattern uses <code>{date}</code> or <code>{time}</code>.</p>
+  <p><strong>Client, Project and Initials live in Project setup</strong>, under the Project button
+  in Settings &rarr; Buttons, shared by every pattern. Client and Project are saved with each
+  project file; your initials are the same everywhere. The date order is set there too.</p>
 
   <figure>
-    <img src="assets/settings-sheet.png" alt="VersionUp Settings on the Naming tab, with Bins and Panel tabs beside it. The Version section has a Click row showing Brand Film_v04 and an opened ⌘-click row with a custom pattern built from client, date, dimensions and version, a row of token buttons and a Save as preset link. The Project section has an Alt-click row showing ALT_iPhone Promo_30-09-2026. Name details below holds Client Apple, Project iPhone Promo, Initials NK and the date order.">
-    <figcaption>Three tabs: <strong>Naming</strong> for what things are called, <strong>Bins</strong>
-      for where they go, <strong>Panel</strong> for which buttons show. Rest the pointer on
-      anything and the line above Save says what it does.</figcaption>
+    <img src="assets/settings-sheet.png" alt="VersionUp Settings on the Buttons tab, with the Panel tab beside it. Version up, Approve and Project tiles across the top, then Click, Alternative, New major and Custom name keys. Below them, the Next version panel: the Format, the name it makes, and the bin, place and colour for the old version.">
+    <figcaption>Two tabs: <strong>Buttons</strong> for what each press does and where it files things,
+      <strong>Panel</strong> for which buttons show. Rest the pointer on
+      anything and the line above Save says what it does; <strong>Tour</strong> beside it walks
+      you through Settings.</figcaption>
   </figure>
 
   <h2 id="bins">Bins and colours</h2>
-  <p>Call the bins what you already call them. <code>_PREVIOUS</code> and <code>APPROVED</code> are
-  just defaults – change them in Settings &rarr; Bins and VersionUp uses yours.</p>
-  <p>Label colours for archived and approved sequences are yours too, so old versions stay visually
+  <p>Call the bins what you already call them. Each press sets its own bin, right beside its name
+  in Settings &rarr; Buttons: <strong>Version up</strong>'s plain click sets where old versions go
+  (<code>_Previous</code>), its Alt-click sets <strong>Alternatives</strong> (<code>ALT</code>), and
+  <strong>Approve</strong> sets <code>APPROVED</code>, with Sent and your own keys beside it. Each
+  has the same three settings: the <strong>Bin</strong> name, <strong>Where</strong> it sits, and
+  the <strong>Colour</strong> its sequences get.</p>
+  <p>The colours start different for each, so old versions, alternatives and approved cuts stay
   distinct at a glance in the Project panel.</p>
 
   <h2 id="panel-layout">Hiding buttons and docking</h2>
