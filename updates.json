@@ -1,15 +1,24 @@
 {
-  "latest": "1.4.16",
-  "released": "2026-10-07",
-  "headline": "Smarter naming, and approved cuts left alone.",
+  "latest": "1.5.0",
+  "released": "2026-10-09",
+  "headline": "New Settings, and a Sent key on Approve.",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "Names like v1_WIP01 now version to v1_WIP02 (REV, R and DRAFT work the same way) instead of getting _001 added on the end",
-    "Versioning an approved cut leaves it untouched in your approved bin, and puts the new version back in your working folder",
-    "Select a sequence in the Project panel to see all its versions, not only the one in the timeline – including versions made on another computer",
-    "Dates can now be written year first (2026-10-07), the only order that sorts by date in a bin",
-    "Settings > Naming: open the Click row to see examples of what a version up does with your settings",
-    "Fixed: a sequence's version history could disappear after the project was saved under a new name",
-    "Fixed: a small gap beside the Sequence tab when nothing was counted"
+    "Settings has a new Buttons tab: pick Version up, Approve or Project, then a key, and see exactly what that press makes and change it in one place. A short tour shows you round the first time, and the Tour link at the bottom brings it back",
+    "Hold Option (Alt on Windows) as you click Approve to file the cut in a Sent bin with its own colour, keeping its version number. The thumb turns into a paper plane while you hold it. Shift and Cmd (Ctrl on Windows) can file into bins of your own, Review and Delivered to start with, shown by a speech bubble and a parcel",
+    "A key on Approve can add its own name after the version, so Brand Film_v03 becomes Brand Film_v03_SENT, or a suffix you type, which can use the same pieces as a custom name, like the date. Out of the box it leaves the name alone",
+    "Approve can leave a cut where it is: it is only coloured and renamed, with no bin made",
+    "Each press now sets where its cut goes, the bin, its place and its colour, right beside its name. Old versions, alternatives and approved cuts each start with their own colour",
+    "Alternatives have their own settings: change the ALT word, keep the version (Brand Film_ALT_v03) or move on one (Brand Film_ALT_v04)",
+    "New major now starts at .0, so v1.8 becomes v2.0. Choose .1 in Settings if you prefer the old way",
+    "Choosing Custom as the Version up format shows the pattern to edit right there. Saved patterns are listed so you can load, rename or delete them, and each piece can be used once",
+    "If a pattern uses your client, project or initials and one is empty, it turns red and tells you where to fill it in. Client, project and initials now sit under Project setup in Settings › Buttons › Project",
+    "Hold a key over a button and its name changes to what the click will do, and the hover tip shows the whole version, so it reads v1.8 → v1.9",
+    "Version up or Alt on a cut that was approved and left in place takes the approval word off first, so Brand Film_MASTER versions up as Brand Film_v02, not Brand Film_MASTER_v02",
+    "The ready-made Project alternative names now put ALT just before the version, so Job_v08 gives Job_ALT_v08",
+    "Date + time + version has left the Format list, since Custom can build it. If you use it, it keeps working",
+    "Fixed: the coloured border round a button jumped once a loop while you hovered",
+    "Fixed: the panel could open with the button names missing and the Project bar as a bare icon until you clicked it",
+    "The log stays out of the way when the panel opens, so the buttons get the room. With Show log switched on, it appears once you press a button"
   ]
 }
