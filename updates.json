@@ -1,24 +1,11 @@
 {
-  "latest": "1.5.0",
-  "released": "2026-10-09",
-  "headline": "New Settings, and a Sent key on Approve.",
+  "latest": "1.5.1",
+  "released": "2026-10-12",
+  "headline": "A capital V, a job number, and a layout fix.",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "Settings has a new Buttons tab: pick Version up, Approve or Project, then a key, and see exactly what that press makes and change it in one place. A short tour shows you round the first time, and the Tour link at the bottom brings it back",
-    "Hold Option (Alt on Windows) as you click Approve to file the cut in a Sent bin with its own colour, keeping its version number. The thumb turns into a paper plane while you hold it. Shift and Cmd (Ctrl on Windows) can file into bins of your own, Review and Delivered to start with, shown by a speech bubble and a parcel",
-    "A key on Approve can add its own name after the version, so Brand Film_v03 becomes Brand Film_v03_SENT, or a suffix you type, which can use the same pieces as a custom name, like the date. Out of the box it leaves the name alone",
-    "Approve can leave a cut where it is: it is only coloured and renamed, with no bin made",
-    "Each press now sets where its cut goes, the bin, its place and its colour, right beside its name. Old versions, alternatives and approved cuts each start with their own colour",
-    "Alternatives have their own settings: change the ALT word, keep the version (Brand Film_ALT_v03) or move on one (Brand Film_ALT_v04)",
-    "New major now starts at .0, so v1.8 becomes v2.0. Choose .1 in Settings if you prefer the old way",
-    "Choosing Custom as the Version up format shows the pattern to edit right there. Saved patterns are listed so you can load, rename or delete them, and each piece can be used once",
-    "If a pattern uses your client, project or initials and one is empty, it turns red and tells you where to fill it in. Client, project and initials now sit under Project setup in Settings › Buttons › Project",
-    "Hold a key over a button and its name changes to what the click will do, and the hover tip shows the whole version, so it reads v1.8 → v1.9",
-    "Version up or Alt on a cut that was approved and left in place takes the approval word off first, so Brand Film_MASTER versions up as Brand Film_v02, not Brand Film_MASTER_v02",
-    "The ready-made Project alternative names now put ALT just before the version, so Job_v08 gives Job_ALT_v08",
-    "Date + time + version has left the Format list, since Custom can build it. If you use it, it keeps working",
-    "Fixed: the coloured border round a button jumped once a loop while you hovered",
-    "Fixed: the panel could open with the button names missing and the Project bar as a bare icon until you clicked it",
-    "The log stays out of the way when the panel opens, so the buttons get the room. With Show log switched on, it appears once you press a button"
+    "Choose a capital V for new versions: Settings › Buttons › Version up › Click › Case gives Brand Film_V01 instead of Brand Film_v01. A name that already has a version keeps its own case, so Cut_v03 still becomes Cut_v04",
+    "Add a job number to your names: fill in Job no. in Project setup (under Project) and use the new job chip in Custom, Custom name, Your own suffix and Project file names. It is saved with each project, like Client and Project",
+    "Fixed: the plugin could open as three small buttons with empty space below in a tall dock. It now uses the full layout whenever there is room for it"
   ]
 }
