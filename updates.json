@@ -1,11 +1,17 @@
 {
-  "latest": "1.5.1",
-  "released": "2026-10-12",
-  "headline": "A capital V, a job number, and a layout fix.",
+  "latest": "1.5.3",
+  "released": "2026-10-19",
+  "headline": "Put each bin where you want it.",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "Choose a capital V for new versions: Settings › Buttons › Version up › Click › Case gives Brand Film_V01 instead of Brand Film_v01. A name that already has a version keeps its own case, so Cut_v03 still becomes Cut_v04",
-    "Add a job number to your names: fill in Job no. in Project setup (under Project) and use the new job chip in Custom, Custom name, Your own suffix and Project file names. It is saved with each project, like Client and Project",
-    "Fixed: the plugin could open as three small buttons with empty space below in a tall dock. It now uses the full layout whenever there is room for it"
+    "New place for a bin: Next to its bin. It goes in the folder that holds your sequence's own bin, so a cut in SOCIAL/15s files to SOCIAL/_Previous/15s. Every Where that makes a bin offers it: Version up, Alternatives, Approve and each Approve key",
+    "Every Where now offers the same choices: At the project root, In the top-level bin (was \"Beside current folder\"), Next to its bin and Leave in place. New for Version up: Leave in place files the old version in the same folder as the cut, with no bin. Alternatives' \"Same folder, no bin\" is now called Leave in place and works as before",
+    "New switch under each Where: Mirror bins. On (as before) rebuilds your bins inside the filed bin. Off puts every filed cut straight into the one bin, so At the project root with it off gives a single _Previous for the whole project",
+    "Under each Where, Show examples draws where the bin goes for the sequence you have selected: the bin first, in its own colour, with the old version under it, then the new version where it already is",
+    "Count work inside a round, like V1_WIP01, V1_WIP02? Switch on Drop the WIP number for an Approve key (Settings › Buttons › Approve). The cut goes out as V1 (V1_SENT with a suffix), and Version up on it starts the next round, V2_WIP01. Off until you switch it on, for each key",
+    "Hover over Approve with one sequence selected and each key's row shows the name it will make, like Version up does (Test_V1_WIP02 → V1). A press that keeps the name shows its bin instead",
+    "Undo takes back a whole batch in far fewer presses. Approve on 20 sequences is now one Cmd-Z (Ctrl-Z on Windows) instead of 20. Version up and Alternatives on 20 are two instead of 40, or a few more when some of them share a name. A new bin still costs one extra press the first time it is made",
+    "Fixed: a Custom pattern such as {name}_{version}_WIP01 dropped the V1 from a name like Cut_V1_WIP02. It now gives Cut_V1_WIP03_WIP01",
+    "Fixed: a sequence several bins deep could be filed as if it sat in its last bin only. VersionUp now always finds the full path, so your bins are rebuilt in full"
   ]
 }
