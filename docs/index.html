@@ -366,6 +366,12 @@
   is a deliverable rather than another rung on the ladder.</p>
   <p><strong>Press it twice and nothing bad happens.</strong> Already approved means re-coloured,
   not re-moved.</p>
+  <p><strong>Hold a key for Sent.</strong> Option-click (Alt-click on Windows) files the cut in a
+  <code>Sent</code> bin with its own colour and keeps its version, so you can see what went out.
+  If you count work inside a round, like <code>V1_WIP01</code>, <code>V1_WIP02</code>, switch on
+  <strong>Drop the WIP number</strong> for that key in Settings &rarr; Buttons &rarr; Approve: the
+  cut goes out as <code>V1</code> (or <code>V1_SENT</code> with a suffix), and Version up on it
+  starts the next round, <code>V2_WIP01</code>. The sent cut itself is never touched.</p>
 
   <h2 id="project">Project</h2>
   <p>Versions the <code>.prproj</code> itself – <code>Job_v01.prproj</code> becomes
@@ -584,6 +590,20 @@
   <strong>Approve</strong> sets <code>APPROVED</code>, with Sent and your own keys beside it. Each
   has the same three settings: the <strong>Bin</strong> name, <strong>Where</strong> it sits, and
   the <strong>Colour</strong> its sequences get.</p>
+  <p><strong>Where</strong> has the same four choices on every press. <strong>At the project root</strong>
+  puts the bin at the top of the project. <strong>In the top-level bin</strong> puts it inside the outermost
+  bin the sequence is in, so a cut in <code>comps</code> files to <code>comps/Sent</code>.
+  <strong>Next to its bin</strong> puts it in the folder that holds the sequence's own bin, so a cut in
+  <code>ACTIVE/SOCIAL/15s</code> files to <code>ACTIVE/SOCIAL/_Previous/15s</code>.
+  <strong>Leave in place</strong> makes no bin at all: the old version, the alternative or the approved
+  cut stays in the same folder as the cut it came from, coloured as usual.</p>
+  <p><strong>Mirror bins</strong>, under Where, is on to start with: the bins your sequence sits in are
+  rebuilt inside the new bin, so you find the cut by the same path you always do. Turn it off and every
+  filed cut goes straight into the one bin, with no bins inside it. At the project root with it off
+  gives a single <code>_Previous</code> for the whole project.</p>
+  <p>Under each Where, <strong>Show examples</strong> draws where things go, using the sequence you
+  have selected (or an example). The bin comes first, in its own colour, with the old version under it;
+  the version you carry on in sits underneath, where it already is.</p>
   <p>The colours start different for each, so old versions, alternatives and approved cuts stay
   distinct at a glance in the Project panel.</p>
 
