@@ -27,7 +27,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VersionUp – Help &amp; Documentation</title>
-<meta name="description" content="User guide for VersionUp, a Premiere Pro panel that versions a sequence in one click, archives the old copy and keeps your bin structure.">
+<meta name="description" content="User guide for VersionUp, a Premiere Pro plugin that versions a sequence in one click, archives the old copy and keeps your bin structure.">
 <link rel="icon" href="assets/versionup-mark-black.png">
 <!-- 🔴 THE CARD A SHARED LINK RENDERS AS – added 23 Aug 2026, having been
      missing entirely. Without og:image, a link pasted into Slack, LinkedIn or
@@ -37,7 +37,7 @@
      again. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="VersionUp – version a sequence in one click">
-<meta property="og:description" content="The old copy is filed away, your folders are rebuilt to match, and your timeline never moves. A Premiere Pro panel.">
+<meta property="og:description" content="The old copy is filed away, your folders are rebuilt to match, and your timeline never moves. A Premiere Pro plugin.">
 <meta property="og:url" content="https://nkcourses.github.io/versionup-updates/">
 <meta property="og:image" content="https://nkcourses.github.io/versionup-updates/assets/versionup-og.png">
 <meta property="og:image:width" content="1200">
@@ -107,6 +107,8 @@
   /* ---------- pieces ---------- */
   figure{margin:22px 0}
   figure img{width:100%; border:1px solid var(--line); border-radius:10px; display:block}
+  figure.window img{max-width:420px; margin:0 auto; border:0; border-radius:0}
+  figure.window figcaption{text-align:center}
   figcaption{margin-top:8px; font-size:13.5px; color:var(--muted); text-align:center}
 
   .cards{display:flex; flex-wrap:wrap; gap:14px; margin:28px 0}
@@ -142,6 +144,27 @@
   .vk-glyph svg{width:30px;height:30px}
   .vk th small{display:block;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)}
   .vk-ex code{white-space:nowrap}
+  .vk-ex small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+  .vk-off{display:inline-block;margin-top:4px;font-size:12px;font-weight:600;color:var(--muted);
+    border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+
+  /* Where each bin goes (20 Oct 2026): the plugin's own Show examples tree, one tile per
+     Where choice. Same example everywhere: Cut_v04 in 00 SEQUENCES / SOCIAL / 15s, Version up
+     makes Cut_v05. Tan = the bin and the cut that moves, as in the plugin. */
+  .where-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin:18px 0}
+  .where-card{background:#1d1d1d;border-radius:12px;padding:14px 16px 16px;color:#e6e6ea;min-width:0}
+  .where-card h3{margin:0 0 2px;font-size:15px;color:#fff;letter-spacing:0}
+  .where-card p{margin:0 0 10px;font-size:13px;line-height:1.45;color:#a3a3aa}
+  .tree{background:#141414;border-radius:8px;padding:10px 12px;font:12.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    overflow-x:auto;white-space:nowrap}
+  .tree div{color:#8e8e94}
+  .tree .bin{color:#d9a877;font-weight:700}
+  .tree .goes{color:#d9a877}
+  .tree .stays{color:#f2f2f4}
+  .tree i{font-style:italic;color:#6f6f76;margin-left:8px}
+  .tree .l1{padding-left:1.5em}.tree .l2{padding-left:3em}.tree .l3{padding-left:4.5em}
+  .where-card.wide{grid-column:1 / -1}
+  @media (max-width:700px){.where-grid{grid-template-columns:minmax(0,1fr)}}
   table{width:100%; border-collapse:collapse; margin:18px 0; font-size:15px}
   th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line);
         vertical-align:top}
@@ -197,11 +220,12 @@
   <a href="#install">Install and activate</a>
   <a href="#quick-start">Quick start</a>
 
-  <h4>The panel</h4>
+  <h4>The plugin</h4>
   <a href="#version-up">Version up</a>
   <a href="#four-ways">Four ways to click Version up</a>
   <a href="#selecting">Choosing what to version</a>
   <a href="#approve">Approve</a>
+  <a href="#approve-keys">Four ways to click Approve</a>
   <a href="#project">Project</a>
   <a href="#versions">Your version history</a>
   <a href="#guard">The wrong-version guard</a>
@@ -213,6 +237,7 @@
   <a href="#naming">Naming and tokens</a>
   <a href="#project-naming">Project version names</a>
   <a href="#bins">Bins and colours</a>
+  <a href="#where">Where each bin goes</a>
   <a href="#panel-layout">Hiding buttons and docking</a>
 
   <h4>Reference</h4>
@@ -228,11 +253,11 @@
 
 <main>
   <h1>VersionUp</h1>
-  <p class="lede">A Premiere Pro panel that versions a sequence in one click – archives the old
+  <p class="lede">A Premiere Pro plugin that versions a sequence in one click – archives the old
   copy, keeps your bin structure, and leaves you working on the sequence you were already on.</p>
 
   <div class="cards">
-    <div class="card"><b>Install and activate</b><span>Get the panel into Premiere and paste your
+    <div class="card"><b>Install and activate</b><span>Get the plugin into Premiere and paste your
       licence key. About a minute.</span></div>
     <div class="card"><b>Quick start</b><span>Version your first sequence and see where the old
       copy goes.</span></div>
@@ -249,7 +274,7 @@
   working on, always.</p>
 
   <figure>
-    <img src="assets/versionup-demo.gif" alt="Pressing Version up: the old copy moves into a _PREVIOUS bin and the sequence in the timeline is renamed in place.">
+    <img src="assets/versionup-demo.gif" alt="Pressing Version up: the old copy moves into a _Previous bin and the sequence in the timeline is renamed in place.">
     <figcaption>One click: the old copy is filed away, the live sequence is renamed in place.</figcaption>
   </figure>
 
@@ -283,10 +308,10 @@
       download link.</li>
     <li><strong>Download <code>VersionUp.ccx</code> and double-click it.</strong> Creative Cloud
       Desktop installs it for you – nothing to unzip.</li>
-    <li><strong>Quit Premiere Pro and open it again.</strong> Premiere only looks for new panels at
+    <li><strong>Quit Premiere Pro and open it again.</strong> Premiere only looks for new plugins at
       startup.</li>
     <li><strong>Window &gt; UXP Plugins &gt; VersionUp.</strong></li>
-    <li>In the panel, open the <strong>☰ menu &gt; Help &amp; licence</strong>, paste your key and press
+    <li>In the plugin, open the <strong>☰ menu &gt; Help &amp; licence</strong>, paste your key and press
       <strong>Activate</strong>.</li>
   </ol>
 
@@ -299,7 +324,7 @@
   <figure>
     <img src="assets/order-email.png" alt="The order email from NK Courses, showing the licence key in a box and a Download VersionUp button.">
     <figcaption>Your licence key arrives by email from <strong>NK Courses</strong>. Copy it – you
-      will paste it into the panel in step 5.</figcaption>
+      will paste it into the plugin in step 5.</figcaption>
   </figure>
 
   <figure>
@@ -317,7 +342,7 @@
   <ol>
     <li>Open a project and select a sequence, or just have one open in the timeline.</li>
     <li>Press <strong>Version up</strong>.</li>
-    <li>Look at your Project panel: the previous version is now in a <code>_PREVIOUS</code> bin with
+    <li>Look at your Project panel: the previous version is now in a <code>_Previous</code> bin with
       a colour label, and the sequence in your timeline has the new number.</li>
   </ol>
   <p>That is the whole loop. Everything below is detail.</p>
@@ -326,8 +351,17 @@
   <p>Duplicates the sequence, bumps the number, and files the old copy away with a colour label.
   Four fiddly steps become one.</p>
   <p><strong>Your folder structure is rebuilt inside the archive, not flattened.</strong> A 9x16
-  archived from a 9x16 bin lands in a 9x16 bin inside <code>_PREVIOUS</code> – not in one flat heap
+  archived from a 9x16 bin lands in a 9x16 bin inside <code>_Previous</code> – not in one flat heap
   at the bottom of the project.</p>
+  <p><strong>It reads the names you already use.</strong> <code>v03</code>, <code>V03</code>,
+  <code>v1.4</code>, <code>001</code> and dates all count on in their own style. Count work inside a
+  round, like <code>V1_WIP01</code>? Version up gives <code>V1_WIP02</code> (REV, R and DRAFT work the
+  same way). Want a capital V on new versions? Settings &rarr; Buttons &rarr; Version up &rarr; Click
+  &rarr; <strong>Case</strong> gives <code>Brand Film_V01</code>. A name that already has a version
+  keeps its own case, so <code>Cut_v03</code> still becomes <code>Cut_v04</code>.</p>
+  <p><strong>Undo takes it back.</strong> Cmd-Z (Ctrl-Z on Windows) undoes a version up in two
+  presses, and the same two presses undo a whole batch of twenty. A new bin costs one extra press the
+  first time it is made.</p>
 
 
   <h2 id="four-ways">Four ways to click Version up</h2>
@@ -336,9 +370,9 @@
   press anything.</p>
   <div class="vk-wrap"><table class="vk">
     <tr><th>Symbol</th><th>Click</th><th>What it does</th><th>Example</th></tr>
-    <tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Version up symbol: an arrow pointing up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17.5v3M19 17.5v3M12 21.5v1.5" opacity=".55"/><path d="M12 19V7M12 6l-5 5M12 6l5 5"/></svg></span></td><th scope="row">Click</th><td>The next version. The old one is filed in <code>_PREVIOUS</code> and you stay in the sequence you are cutting.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Alternative symbol: two arrows pointing opposite ways"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h13M13.5 6l3.5 3.5-3.5 3.5"/><path d="M20 16.5H7M10.5 13 7 16.5l3.5 3.5"/></svg></span></td><th scope="row">Alt-click<br><small>Option on a Mac</small></th><td>An alternative. A copy beside the original, filed in an <code>ALT</code> bin and opened. The original is not renamed or moved. In Settings it can keep the version, as here, or move on one (<code>ALT_v04</code>).</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_ALT_v03</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Major version symbol: an arrow rising to a bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8M12 8l-5 5M12 8l5 5M5 4h14"/></svg></span></td><th scope="row">Shift-click</th><td>A new major version, for when the brief changes rather than the trim. The number after the dot resets to 0 (or 1, if you choose that in Settings).</td><td class="vk-ex"><code>Cut_v4.4</code> &rarr; <code>Cut_v5.0</code><br><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04.0</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Custom name symbol: an arrow inside curly brackets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5c-1.8 0-2.2 1-2.2 2.6v2.6c0 1.2-.6 2-1.8 2.3 1.2.3 1.8 1.1 1.8 2.3v2.6c0 1.6.4 2.6 2.2 2.6"/><path d="M17 4.5c1.8 0 2.2 1 2.2 2.6v2.6c0 1.2.6 2 1.8 2.3-1.2.3-1.8 1.1-1.8 2.3v2.6c0 1.6-.4 2.6-2.2 2.6"/><path d="M12 16.5V8M12 7.5l-3 3M12 7.5l3 3"/></svg></span></td><th scope="row">Cmd-click<br><small>Ctrl-click on Windows</small></th><td>Your own naming pattern, from Settings &rarr; Buttons. The pattern needs <code>{version}</code> in it.</td><td class="vk-ex">Pattern <code>{client}_{project}_{name}_{version}</code>, Client ACME, Project Harbour:<br><code>Brand Film</code> &rarr; <code>ACME_Harbour_Brand Film_v01</code></td></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Version up symbol: an arrow pointing up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17.5v3M19 17.5v3M12 21.5v1.5" opacity=".55"/><path d="M12 19V7M12 6l-5 5M12 6l5 5"/></svg></span></td><th scope="row">Click</th><td>The next version. The old one is filed in <code>_Previous</code> and you stay in the sequence you are cutting.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Alternative symbol: two arrows pointing opposite ways"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h13M13.5 6l3.5 3.5-3.5 3.5"/><path d="M20 16.5H7M10.5 13 7 16.5l3.5 3.5"/></svg></span></td><th scope="row">Alt-click<br><small>Option on a Mac</small></th><td>An alternative. A copy beside the original, filed in an <code>ALT</code> bin and opened. The original is not renamed or moved. In Settings it can keep the version, as here, or move on one (<code>ALT_v04</code>).</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_ALT_v03</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Major version symbol: an arrow rising to a bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8M12 8l-5 5M12 8l5 5M5 4h14"/></svg></span></td><th scope="row">Shift-click</th><td>A new major version, for when the brief changes rather than the trim. The number after the dot resets to 0 (or 1, if you choose that in Settings).</td><td class="vk-ex"><code>Cut_v4.4</code> &rarr; <code>Cut_v5.0</code><br><code>Brand Film_v03</code> &rarr; <code>Brand Film_v04.0</code></td></tr><tr><td class="vk-sym"><span class="vk-glyph" role="img" aria-label="Custom name symbol: an arrow inside curly brackets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5c-1.8 0-2.2 1-2.2 2.6v2.6c0 1.2-.6 2-1.8 2.3 1.2.3 1.8 1.1 1.8 2.3v2.6c0 1.6.4 2.6 2.2 2.6"/><path d="M17 4.5c1.8 0 2.2 1 2.2 2.6v2.6c0 1.2.6 2 1.8 2.3-1.2.3-1.8 1.1-1.8 2.3v2.6c0 1.6-.4 2.6-2.2 2.6"/><path d="M12 16.5V8M12 7.5l-3 3M12 7.5l3 3"/></svg></span></td><th scope="row">Cmd-click<br><small>Ctrl-click on Windows</small></th><td>Your own naming pattern, from Settings &rarr; Buttons. The pattern needs <code>{version}</code> in it.</td><td class="vk-ex">Pattern <code>{client}_{project}_{name}_{version}</code>, Client ACME, Project Harbour:<br><code>Brand Film</code> &rarr; <code>ACME_Harbour_Brand Film_v01</code></td></tr>
   </table></div>
-  <p>Rest on the button for a second and the panel lists all four with the <em>real</em> names it
+  <p>Rest on the button for a second and the plugin lists all four with the <em>real</em> names it
   would write for the sequence you have selected, and lights the row for the key you are holding.
   Holding Alt and Shift together makes an alternative &ndash; Alt wins.</p>
 
@@ -354,7 +388,7 @@
   <h2 id="approve">Approve</h2>
   <p>One click marks the cut the client signed off: moves it into your approved bin, colours it
   green, and renames it – <code>Brand Film_MASTER</code>. Findable from the Project panel weeks
-  later without opening the panel at all.</p>
+  later without opening the plugin at all.</p>
 
   <figure>
     <img src="assets/approve-demo.gif" alt="Pressing Approve: the sequence moves to an APPROVED bin, turns green and is renamed with a MASTER suffix.">
@@ -366,12 +400,49 @@
   is a deliverable rather than another rung on the ladder.</p>
   <p><strong>Press it twice and nothing bad happens.</strong> Already approved means re-coloured,
   not re-moved.</p>
-  <p><strong>Hold a key for Sent.</strong> Option-click (Alt-click on Windows) files the cut in a
-  <code>Sent</code> bin with its own colour and keeps its version, so you can see what went out.
-  If you count work inside a round, like <code>V1_WIP01</code>, <code>V1_WIP02</code>, switch on
-  <strong>Drop the WIP number</strong> for that key in Settings &rarr; Buttons &rarr; Approve: the
-  cut goes out as <code>V1</code> (or <code>V1_SENT</code> with a suffix), and Version up on it
-  starts the next round, <code>V2_WIP01</code>. The sent cut itself is never touched.</p>
+  <h2 id="approve-keys">Four ways to click Approve</h2>
+  <p>Not every cut that leaves the edit is the final one. Hold a key as you click Approve and the cut
+  goes into a bin for that stage instead, with its own colour, so the Project panel shows at a glance
+  what went to the client, what is out for review and what was delivered. The thumb on the button
+  turns into the key's symbol the moment you hold it.</p>
+  <div class="vk-wrap"><table class="vk">
+    <tr><th>Symbol</th><th>Click</th><th>Stage</th><th>Example</th></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" style="color:#16dd7d" role="img" aria-label="Approve symbol: a green thumbs up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span></td><th scope="row">Click</th><td><strong>Approved.</strong> The cut the client signed off: filed in <code>APPROVED</code>, coloured green, renamed with <code>_MASTER</code>.</td><td class="vk-ex"><code>Brand Film_v03</code> &rarr; <code>Brand Film_MASTER</code><small>in APPROVED</small></td></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" style="color:#1fc8ec" role="img" aria-label="Sent symbol: a cyan paper plane with a trail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 21.5l1.6-1.6M6 18l1.6-1.6M2.5 16.5l1.3-1.3" opacity=".55"/><path d="M22 2 15.5 20 12 12.5 4 9z"/><path d="M22 2 12 12.5"/></svg></span></td><th scope="row">Alt-click<small>Option on a Mac</small></th><td><strong>Sent.</strong> What went out to the client. Filed in <code>Sent</code>, coloured Cerulean, and the version is kept so you can see which one went.</td><td class="vk-ex"><code>Brand Film_v03</code> stays <code>Brand Film_v03</code><small>in Sent</small></td></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" style="color:#9d54e8" role="img" aria-label="Review symbol: a purple speech bubble with three dots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9.3a.7.7 0 1 0 0 1.4a.7.7 0 1 0 0-1.4zM12 9.3a.7.7 0 1 0 0 1.4a.7.7 0 1 0 0-1.4zM16 9.3a.7.7 0 1 0 0 1.4a.7.7 0 1 0 0-1.4z"/></svg></span></td><th scope="row">Shift-click</th><td><strong>Review.</strong> Out for comments. Filed in <code>Review</code>, coloured Mango.<br><span class="vk-off">Off until you switch it on</span></td><td class="vk-ex"><code>Brand Film_v03</code> stays <code>Brand Film_v03</code><small>in Review</small></td></tr>
+    <tr><td class="vk-sym"><span class="vk-glyph" style="color:#16dd7d" role="img" aria-label="Delivered symbol: a green parcel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg></span></td><th scope="row">Cmd-click<small>Ctrl-click on Windows</small></th><td><strong>Delivered.</strong> Handed over. Filed in <code>Delivered</code>, coloured Iris.<br><span class="vk-off">Off until you switch it on</span></td><td class="vk-ex"><code>Brand Film_v03</code> stays <code>Brand Film_v03</code><small>in Delivered</small></td></tr>
+  </table></div>
+  <p><strong>Make them yours.</strong> In Settings &rarr; Buttons &rarr; Approve, pick a key and change
+  its <strong>Label</strong>, <strong>Bin</strong>, <strong>Where</strong>, <strong>Colour</strong> and
+  <strong>Suffix</strong>, or switch it off. A key that is off does a plain Approve. The symbol belongs
+  to the key, so Shift is always the speech bubble whatever you call it.</p>
+  <p><strong>Each key chooses its own name.</strong> Out of the box Sent, Review and Delivered leave
+  the name alone. Pick <em>Use label name</em> and <code>Brand Film_v03</code> becomes
+  <code>Brand Film_v03_SENT</code>, or type your own suffix, which can use the same tokens as a
+  custom name, like the date. The suffix always goes after the version. The plain Approve click
+  ends in <code>_MASTER</code>, <code>_FINAL</code>, your own word, or leaves the name alone.</p>
+  <p><strong>Counting work inside a round?</strong> If your names run <code>V1_WIP01</code>,
+  <code>V1_WIP02</code>, switch on <strong>Drop the WIP number</strong> for that key. The cut goes out
+  as <code>V1</code> (or <code>V1_SENT</code> with a suffix), and Version up on it starts the next
+  round, <code>V2_WIP01</code>.</p>
+  <p><strong>Or leave the cut where it is.</strong> Set any key's Where to <em>Leave in place</em>
+  and Approve only colours and renames the cut, with no bin made. The other choices are drawn in
+  <a href="#where">Where each bin goes</a>.</p>
+  <p><strong>A sent cut is never touched again.</strong> Version up on it leaves it in its bin and
+  puts the new version back in your working folder, the same as an approved cut.</p>
+
+  <figure class="window">
+    <img src="assets/settings-approve.png" alt="VersionUp Settings, Buttons tab, with Approve picked. The keys are Click for Approved, Option for Sent, Shift for Review and Cmd for Delivered. The Approved section shows the bin APPROVED, Where set to In the top-level bin, Mirror bins on, the colour Green, the suffix _MASTER and the name it makes.">
+    <figcaption>Settings &rarr; Buttons &rarr; Approve: Approved, Sent, Review and Delivered, each
+      with its own bin, colour and name.</figcaption>
+  </figure>
+  <p>Rest on Approve with one sequence selected and each key's row shows the exact name it will make,
+  like <code>Test_V1_WIP02 &rarr; V1</code>. A press that keeps the name shows its bin instead.</p>
+  <p><strong>Versioning an approved cut leaves it alone.</strong> The approved cut stays in your
+  approved bin, untouched, and the new version goes back to your working folder without the approval
+  word: <code>Brand Film_MASTER</code> versions up as <code>Brand Film_v02</code>, not
+  <code>Brand Film_MASTER_v02</code>. An alternative made from it drops <code>_MASTER</code> too.</p>
+  <p><strong>Undo is one press</strong>, even for twenty cuts approved at once.</p>
 
   <h2 id="project">Project</h2>
   <p>Versions the <code>.prproj</code> itself – <code>Job_v01.prproj</code> becomes
@@ -383,12 +454,12 @@
   </figure>
 
   <div class="note warn">
-    <p><b>This one cannot be undone.</b> Everything else in VersionUp is a single Undo (Cmd+Z, or Ctrl+Z on Windows); saving a
+    <p><b>This one cannot be undone.</b> Everything else in VersionUp can be undone with Cmd+Z (Ctrl+Z on Windows); saving a
     project writes a file. That is why the button shows you the name it is about to use.</p>
   </div>
 
   <p><strong>It will not save over a project that already exists.</strong> Because the write cannot
-  be undone, a click that would land on a filename already on disk is stopped and the panel says so,
+  be undone, a click that would land on a filename already on disk is stopped and the plugin says so,
   rather than quietly replacing a day&rsquo;s work.</p>
 
   <p>The Project button takes the same modifier keys as Version up, plus one of its own:</p>
@@ -396,13 +467,13 @@
     <tr><th>Click</th><td>The next project version &ndash; <code>Job_v03.prproj</code></td></tr>
     <tr><th>&#8997; Alt-click</th><td>An alternative &ndash; <code>Job_ALT_v03.prproj</code>, beside
       the original. Also works when the guard is blocking an old project file.</td></tr>
-    <tr><th>&#8679; Shift-click</th><td>A new major &ndash; <code>Job_v04.1.prproj</code></td></tr>
+    <tr><th>&#8679; Shift-click</th><td>A new major &ndash; <code>Job_v04.0.prproj</code></td></tr>
     <tr><th>&#8984; Cmd-click<br>(Ctrl-click on Windows)</th><td>Shows the current project&rsquo;s
       folder. Nothing is written.</td></tr>
   </table>
 
   <h2 id="versions">Your version history</h2>
-  <p>At the foot of the panel is a <strong>Versions</strong> strip. It starts closed; click it to
+  <p>At the foot of the plugin is a <strong>Versions</strong> strip. It starts closed; click it to
   open. It lists what VersionUp has made and when, so you can answer &ldquo;when did I last version
   this?&rdquo; without going anywhere near the Project panel.</p>
 
@@ -416,6 +487,8 @@
     <li><strong>A green tick</strong> marks a cut that was approved, with the date it happened.</li>
     <li><strong>Click a sequence row</strong> to open that sequence in the timeline. The one you
       are in now is marked with a blue edge.</li>
+    <li><strong>Select a sequence in the Project panel</strong> to see all its versions, not only
+      the one in the timeline, including versions made on another computer.</li>
     <li><strong>Click a project row</strong> to show that file&rsquo;s folder, with its full path
       copied to your clipboard.</li>
   </ul>
@@ -429,7 +502,7 @@
 
   <p><strong>You can put it away.</strong> Settings &rarr; Panel &rarr; <em>Show version
   history</em>. It is on to start with; turn it off and the strip goes, giving that height back to
-  the buttons &ndash; useful if you keep the panel docked short. Nothing is forgotten: VersionUp
+  the buttons &ndash; useful if you keep the plugin docked short. Nothing is forgotten: VersionUp
   carries on recording, and switching it back on shows everything it made while the strip was
   hidden.</p>
 
@@ -468,42 +541,50 @@
   <code>ALT</code> bin and opens it, so you carry on in it. The original is not renamed and not
   moved.</p>
   <p>For the version of a cut you want to try without giving up the one you have.</p>
+  <p>In Settings &rarr; Buttons &rarr; Version up &rarr; Alternative you can change the word
+  (<code>ALT</code>), keep the version (<code>Brand Film_ALT_v03</code>) or move on one
+  (<code>Brand Film_ALT_v04</code>), or pick <em>Next letter</em>, so <code>a03</code>
+  becomes <code>b01</code>.</p>
   <p><strong>Alt-click Project</strong> does the same thing to the project file &ndash;
   <code>Job_ALT_v03.prproj</code> beside the original. <em>Showing the project&rsquo;s folder moved to
   <strong>&#8984; Cmd-click</strong> (Ctrl-click on Windows)</em> so that Alt could mean the same
   thing on every button.</p>
 
-  <p>Rest on any button for a second and the panel shows you what each key does &ndash; with the
+  <p>Rest on any button for a second and the plugin shows you what each key does &ndash; with the
   real name it would write, not a placeholder &ndash; and lights the row for the key you are
   actually holding.</p>
 
   <figure>
-    <img src="assets/modifier-keys.png" alt="Two panels side by side. On Version up, three rows: Click for version up, Alt-click for an alternative, Shift-click for a new major, each showing the resulting name; the Alt row is lit because Alt is being held. On Project, four rows, the fourth being Cmd-click to show the project's folder.">
-    <figcaption>A read-out, not a legend: hold a key and the panel tells you what this click will
+    <img src="assets/modifier-keys.png" alt="The plugin twice, side by side. On Version up, three rows: Click for version up, Alt-click for an alternative, Shift-click for a new major, each showing the resulting name; the Alt row is lit because Alt is being held. On Project, four rows, the fourth being Cmd-click to show the project's folder.">
+    <figcaption>A read-out, not a legend: hold a key and the plugin tells you what this click will
       now do.</figcaption>
   </figure>
 
   <div class="note">
-    <p><b>If a row never lights up, that key is not reaching the panel.</b> Alt is the one to rely
-    on. Premiere does not always pass Cmd and Shift through to a plugin panel, so the panel still
+    <p><b>If a row never lights up, that key is not reaching the plugin.</b> Alt is the one to rely
+    on. Premiere does not always pass Cmd and Shift through to a plugin, so the plugin still
     lists them but cannot promise them on every system &ndash; and showing a project&rsquo;s folder
     is also one click on its row in the Versions strip, with no key held at all.</p>
   </div>
 
   <h2 id="major">Shift-click: a major version</h2>
   <p><strong>Hold Shift and click Version up.</strong> <code>Cut_v4.4</code> becomes
-  <code>Cut_v5.1</code> instead of <code>Cut_v4.5</code> &ndash; a new major version, with the minor
-  number back at 1.</p>
+  <code>Cut_v5.0</code> instead of <code>Cut_v4.5</code> &ndash; a new major version, with the minor
+  number back at 0. Prefer it to start at 1? Settings &rarr; Buttons &rarr; Version up &rarr; New major
+  &rarr; <strong>Resets to</strong>.</p>
   <p>For the cut that has been through four rounds of notes and is now a different edit, rather than
   the next revision of the same one.</p>
   <p><strong>If your names have no major part, Shift makes one.</strong> <code>Brand Film_v03</code>
-  becomes <code>Brand Film_v04.1</code>, and ordinary clicks after that run <code>v04.2</code>,
-  <code>v04.3</code> and so on.</p>
+  becomes <code>Brand Film_v04.0</code>, and ordinary clicks after that run <code>v04.1</code>,
+  <code>v04.2</code> and so on.</p>
   <p><strong>It works whatever naming format you use.</strong> With a custom pattern, Shift keeps the
   name you have and raises its number &ndash; <code>Brand Film_v03</code> becomes
-  <code>Brand Film_v04.1</code>. The only name it can't raise is one with no version number in it,
+  <code>Brand Film_v04.0</code>. The only name it can't raise is one with no version number in it,
   and it says so and changes nothing.</p>
-  <p>Holding Alt and Shift together makes an alternative. Alt wins, and the panel says so while you
+  <p><strong>It counts on from the highest major in the project.</strong> Shift on
+  <code>Cut_v1.7</code> while a <code>Cut_v2.3</code> exists gives <code>Cut_v3.0</code>, so a new
+  major never clashes with one you already have.</p>
+  <p>Holding Alt and Shift together makes an alternative. Alt wins, and the plugin says so while you
   are holding them.</p>
 
   <h2 id="working">While it is working</h2>
@@ -512,13 +593,13 @@
   through.</p>
 
   <figure>
-    <img src="assets/working-state.png" alt="The same panel twice. On the left, Version up at rest with a count of three. On the right, the same button greyed and reading WORKING, with the count still visible.">
+    <img src="assets/working-state.png" alt="The same plugin twice. On the left, Version up at rest with a count of three. On the right, the same button greyed and reading WORKING, with the count still visible.">
     <figcaption>The button wears the same greys as a button you cannot press &ndash; because for
       those few seconds, you cannot.</figcaption>
   </figure>
 
   <div class="note">
-    <p><b>It does not spin, and that is deliberate.</b> Premiere stops the panel completely while it
+    <p><b>It does not spin, and that is deliberate.</b> Premiere stops the plugin completely while it
     duplicates and saves &ndash; nothing in it can move, including a spinner. A frozen animation
     reads as a crash; a button that plainly says it is working does not.</p>
   </div>
@@ -526,12 +607,20 @@
   <h2 id="naming">Naming and tokens</h2>
   <p><strong>☰ &gt; Settings &rarr; Buttons.</strong> <strong>Pick a button</strong> (Version up,
   Approve or Project), then <strong>pick a key</strong>: a plain click, or a key held as you click
-  (Option, Shift or Cmd on a Mac; Alt, Shift or Ctrl on Windows). The panel underneath shows
+  (Option, Shift or Cmd on a Mac; Alt, Shift or Ctrl on Windows). The section underneath shows
   that press's settings and, under <strong>Makes</strong>, the exact name it will give.</p>
+
+  <figure class="window">
+    <img src="assets/settings-sheet.png" alt="VersionUp Settings on the Buttons tab, with the Panel tab beside it. Version up, Approve and Project tiles across the top, then Click, Alternative, New major and Custom name keys. Below them, the Next version section: Format, Case, the name it makes, then Where, the Mirror bins switch, the bin name and its colour.">
+    <figcaption>Two tabs: <strong>Buttons</strong> for what each press does and where it files things,
+      <strong>Panel</strong> for which buttons show. Rest the pointer on
+      anything and the line above Save says what it does; <strong>Tour</strong> beside it walks
+      you through Settings.</figcaption>
+  </figure>
   <p>Names are built from tokens. Tap one to drop it into the pattern you are editing &ndash; the
   row of tokens always sits under that box. A token already in the pattern turns purple; tap it
-  again to take it out, since each one can only be used once. If a pattern uses a client, project
-  or initials that is not filled in, its token turns red and a line under it says so.
+  again to take it out, since each one can only be used once. If a pattern uses a client, project,
+  job number or initials that is not filled in, its token turns red and a line under it says so.
   <code>{dimensions}</code> is not offered for a project file, which has no frame size. A pattern
   only contains what you put in it, so leave out <code>{name}</code> and the sequence's own name is
   not in the result.</p>
@@ -543,6 +632,7 @@
     <tr><td><code>{version}</code></td><td>v01, v02, v03…</td></tr>
     <tr><td><code>{project}</code></td><td>The project file's name, unless you type another in the Project box</td></tr>
     <tr><td><code>{client}</code></td><td>Whatever you type in the Client box</td></tr>
+    <tr><td><code>{job}</code></td><td>The job number from the Job no. box</td></tr>
     <tr><td><code>{initials}</code></td><td>Yours, from the Initials box</td></tr>
     <tr><td><code>{date}</code></td><td>Today, in the order you choose</td></tr>
     <tr><td><code>{time}</code></td><td>The current time</td></tr>
@@ -550,7 +640,7 @@
   </table>
 
   <figure>
-    <img src="assets/custom-name-demo.gif" alt="Building a custom naming pattern from tokens in the settings panel, with a live preview.">
+    <img src="assets/custom-name-demo.gif" alt="Building a custom naming pattern from tokens in the Settings window, with a live preview.">
     <figcaption>A live preview shows the result as you build the pattern.</figcaption>
   </figure>
 
@@ -570,18 +660,18 @@
   <code>Job_ALT_v09</code> with next version). Pick one and the pattern fills itself in; edit it
   afterwards and your edit stands.</p>
   <p><code>{dimensions}</code> is not offered here. A <code>.prproj</code> has no frame size, so a
-  token for it would only ever come out blank.</p>
-  <p><strong>Client, Project and Initials live in Project setup</strong>, under the Project button
-  in Settings &rarr; Buttons, shared by every pattern. Client and Project are saved with each
-  project file; your initials are the same everywhere. The date order is set there too.</p>
+  token for it would only ever come out blank. One extra token is: <code>{next}</code>, the version
+  one up from the project's own.</p>
+  <p><strong>Client, Project, Job no. and Initials live in Project setup</strong>, under the Project
+  button in Settings &rarr; Buttons, shared by every pattern. Client, Project and Job no. are saved with
+  each project file; your initials are the same everywhere. The date order is set there too.</p>
 
-  <figure>
-    <img src="assets/settings-sheet.png" alt="VersionUp Settings on the Buttons tab, with the Panel tab beside it. Version up, Approve and Project tiles across the top, then Click, Alternative, New major and Custom name keys. Below them, the Next version panel: the Format, the name it makes, and the bin, place and colour for the old version.">
-    <figcaption>Two tabs: <strong>Buttons</strong> for what each press does and where it files things,
-      <strong>Panel</strong> for which buttons show. Rest the pointer on
-      anything and the line above Save says what it does; <strong>Tour</strong> beside it walks
-      you through Settings.</figcaption>
+  <figure class="window">
+    <img src="assets/settings-project.png" alt="VersionUp Settings, Buttons tab, with Project picked. The keys are Click for Next version, Option for Alternative, Shift for New major and Cmd for Show folder. Below, the name the next project file gets, and a Project setup row.">
+    <figcaption>Settings &rarr; Buttons &rarr; Project: what each press does to the project file, and
+      <strong>Project setup</strong> for client, project, job number and initials.</figcaption>
   </figure>
+
 
   <h2 id="bins">Bins and colours</h2>
   <p>Call the bins what you already call them. Each press sets its own bin, right beside its name
@@ -590,40 +680,57 @@
   <strong>Approve</strong> sets <code>APPROVED</code>, with Sent and your own keys beside it. Each
   has the same three settings: the <strong>Bin</strong> name, <strong>Where</strong> it sits, and
   the <strong>Colour</strong> its sequences get.</p>
-  <p><strong>Where</strong> has the same four choices on every press. <strong>At the project root</strong>
-  puts the bin at the top of the project. <strong>In the top-level bin</strong> puts it inside the outermost
-  bin the sequence is in, so a cut in <code>comps</code> files to <code>comps/Sent</code>.
-  <strong>Next to its bin</strong> puts it in the folder that holds the sequence's own bin, so a cut in
-  <code>ACTIVE/SOCIAL/15s</code> files to <code>ACTIVE/SOCIAL/_Previous/15s</code>.
-  <strong>Leave in place</strong> makes no bin at all: the old version, the alternative or the approved
-  cut stays in the same folder as the cut it came from, coloured as usual.</p>
-  <p><strong>Mirror bins</strong>, under Where, is on to start with: the bins your sequence sits in are
-  rebuilt inside the new bin, so you find the cut by the same path you always do. Turn it off and every
-  filed cut goes straight into the one bin, with no bins inside it. At the project root with it off
-  gives a single <code>_Previous</code> for the whole project.</p>
-  <p>Under each Where, <strong>Show examples</strong> draws where things go, using the sequence you
-  have selected (or an example). The bin comes first, in its own colour, with the old version under it;
-  the version you carry on in sits underneath, where it already is.</p>
   <p>The colours start different for each, so old versions, alternatives and approved cuts stay
   distinct at a glance in the Project panel.</p>
 
+
+  <h2 id="where">Where each bin goes</h2>
+  <p>Every press that files something has a <strong>Where</strong>, with the same four choices: Version
+  up, its Alt-click, Approve and each Approve key. Below is the same sequence each time,
+  <code>Cut_v04</code> in <code>00 SEQUENCES / SOCIAL / 15s</code>, after a Version up. The bin and the
+  old version are in tan, the colour old versions get; the new version stays where it was.</p>
+  <div class="where-grid">
+    <div class="where-card"><h3>At the project root</h3><p>The bin sits at the top of the project, with your bins rebuilt inside it.</p><div class="tree"><div>Project</div><div class="l1 bin">_Previous</div><div class="l2 goes">00 SEQUENCES / SOCIAL / 15s</div><div class="l3 goes">Cut_v04<i>old version, filed</i></div><div class="l1">00 SEQUENCES / SOCIAL / 15s</div><div class="l2 stays">Cut_v05<i>you carry on here</i></div></div></div>
+    <div class="where-card"><h3>In the top-level bin</h3><p>Inside the outermost bin the sequence is in. Out of the box, every bin goes here.</p><div class="tree"><div>00 SEQUENCES</div><div class="l1 bin">_Previous</div><div class="l2 goes">SOCIAL / 15s</div><div class="l3 goes">Cut_v04<i>old version, filed</i></div><div class="l1">SOCIAL / 15s</div><div class="l2 stays">Cut_v05<i>you carry on here</i></div></div></div>
+    <div class="where-card"><h3>Next to its bin</h3><p>Beside the sequence's own bin, one level up, so the filed copy stays close to where you work.</p><div class="tree"><div>00 SEQUENCES / SOCIAL</div><div class="l1 bin">_Previous</div><div class="l2 goes">15s</div><div class="l3 goes">Cut_v04<i>old version, filed</i></div><div class="l1">15s</div><div class="l2 stays">Cut_v05<i>you carry on here</i></div></div></div>
+    <div class="where-card"><h3>Leave in place</h3><p>No bin at all. The old version stays beside the new one, coloured so you can tell them apart.</p><div class="tree"><div>00 SEQUENCES / SOCIAL / 15s</div><div class="l1 stays">Cut_v05<i>you carry on here</i></div><div class="l1 goes">Cut_v04<i>old version, coloured</i></div></div></div>
+    <div class="where-card wide"><h3>Mirror bins off</h3><p>Every filed cut goes straight into the one bin, with no bins inside it. With At the project root, that is a single _Previous for the whole project.</p><div class="tree"><div>Project</div><div class="l1 bin">_Previous</div><div class="l2 goes">Cut_v04<i>old version, filed</i></div><div class="l1">00 SEQUENCES / SOCIAL / 15s</div><div class="l2 stays">Cut_v05<i>you carry on here</i></div></div></div>
+  </div>
+  <p><strong>Mirror bins</strong> sits under Where and is on to start with: the bins your sequence
+  sits in are rebuilt inside the new bin, so you find the cut by the same path you always do. It is
+  hidden for Leave in place, which makes no bin.</p>
+  <p><strong>See it for your own sequence.</strong> Under each Where, <strong>Show examples</strong>
+  draws this same picture using the sequence you have selected, with its real bins and names (or an
+  example when nothing is selected). It starts hidden each time Settings opens.</p>
+  <p>Approve and its keys work the same way: swap <code>_Previous</code> for <code>APPROVED</code>,
+  <code>Sent</code>, <code>Review</code> or <code>Delivered</code>, and the cut that moves is the one
+  you approved.</p>
+
   <h2 id="panel-layout">Hiding buttons and docking</h2>
   <p><strong>Hide the buttons you don&rsquo;t use.</strong> Any of the three, Version up included.
-  Turn one off in Settings &rarr; Panel and the panel reshapes around what is left &ndash; two side by side, or
-  one taking the whole panel &ndash; with no empty band where a button used to be.</p>
-  <p>The last button on cannot be switched off. A panel with nothing on it has no obvious way
+  Turn one off in Settings &rarr; Panel and the plugin reshapes around what is left &ndash; two side by side, or
+  one taking all the room &ndash; with no empty band where a button used to be.</p>
+  <p>The last button on cannot be switched off. An empty plugin has no obvious way
   back.</p>
-  <p><strong>It fits any dock.</strong> Four layouts, and you never choose between them – the panel
+
+  <figure class="window">
+    <img src="assets/settings-panel.png" alt="VersionUp Settings on the Panel tab. Three tiles, Version up, Approve and Project, each marked On the panel with an eye icon. Below, Options: Block VersionUp on an old version (on), Show log (off), Show version history (on) and Show hover tips (on).">
+    <figcaption>Settings &rarr; Panel: click a tile to show or hide that button, and switch the
+      options below.</figcaption>
+  </figure>
+  <p><strong>Show hover tips</strong>, on that tab, turns off the read-out that appears when you rest
+  on a button, listing what a click and each key would do. Switch it off once you know them.</p>
+  <p><strong>It fits any dock.</strong> Four layouts, and you never choose between them – the plugin
   picks whichever one fits as you drag it.</p>
 
   <figure>
-    <img src="assets/docking-layouts.png" alt="The VersionUp panel drawn at four dock sizes: a narrow vertical strip showing three full-width bars with icons only; docked as a column showing two named buttons and a project bar; docked short showing three named buttons across one row; and a shallow strip showing three small icon-only buttons.">
-    <figcaption>The same panel, four docks. Nothing is configured – it reflows on its own.</figcaption>
+    <img src="assets/docking-layouts.png" alt="VersionUp drawn at four dock sizes: a narrow vertical strip showing three full-width bars with icons only; docked as a column showing two named buttons and a project bar; docked short showing three named buttons across one row; and a shallow strip showing three small icon-only buttons.">
+    <figcaption>The same plugin, four docks. Nothing is configured – it reflows on its own.</figcaption>
   </figure>
 
   <ul>
     <li><strong>Two rows and a project bar.</strong> The full layout. Version up and Approve fill the
-      panel with their names under them, and Project sits as a wide bar underneath showing the
+      space with their names under them, and Project sits as a wide bar underneath showing the
       filename it would write.</li>
     <li><strong>Three full-width bars.</strong> Docked as a narrow vertical strip beside your
       timeline, each button takes the whole width with its name beside the symbol, rather than three
@@ -635,13 +742,13 @@
   </ul>
 
   <p><strong>There is a floor.</strong> Below the width at which a button can still hold its symbol,
-  the buttons do not keep shrinking – they step aside too, and the panel shows <span
+  the buttons do not keep shrinking – they step aside too, and the plugin shows <span
   aria-hidden="true">&#8596;</span> <strong>WIDER</strong> until you give it room again. Nothing is
   lost and nothing is switched off; drag the edge back and the buttons return exactly as they
   were.</p>
 
   <figure>
-    <img src="assets/docking-demo.gif" alt="The panel being made shorter and taller, changing between its four layouts as it goes.">
+    <img src="assets/docking-demo.gif" alt="The plugin being made shorter and taller, changing between its four layouts as it goes.">
     <figcaption>Dragging it shorter and back again.</figcaption>
   </figure>
 
@@ -668,14 +775,14 @@
   </figure>
 
   <h2 id="updates">Updates</h2>
-  <p>VersionUp tells you when there is a new version – a quiet bar at the top of the panel, never a
+  <p>VersionUp tells you when there is a new version – a quiet bar at the top of the plugin, never a
   nag. Wave it off and it stays out of the way; it will not pester you about the same version twice.</p>
   <p>Updates are free. Download the new <code>.ccx</code> from the link in your licence email, double-click
   it, and restart Premiere. Your licence key stays activated.</p>
 
   <p><strong>☰ &gt; Help &amp; licence</strong> checks straight away, every time you open it, and says
   under the version number whether you are up to date. Use it if you have heard a new version is out
-  and the panel has not mentioned it – the automatic check runs at most once a day, so there is a
+  and the plugin has not mentioned it – the automatic check runs at most once a day, so there is a
   window where a release exists and your copy has not looked yet. Press <strong>Check for
   updates</strong> at the bottom of the window to ask again at any time: the answer appears in its
   place, telling you whether you're on the latest version, and if there is a newer one it offers
@@ -710,10 +817,10 @@
   <figure>
     <!-- ⚠️ RETAKE THIS WHENEVER A MENU ITEM IS ADDED. The previous shot predated
          "Check for updates" and showed a menu one item short of the real one –
-         a screenshot that disagrees with the panel is worse than none, because
+         a screenshot that disagrees with the plugin is worse than none, because
          the reader trusts it and then cannot find what it promised. -->
-    <img src="assets/burger-menu.png" alt="The panel's burger menu open, showing Tour, Help &amp; licence, and Send feedback, then Settings below a divider.">
-    <figcaption>Everything lives in the ☰ menu at the top right of the panel.</figcaption>
+    <img src="assets/burger-menu.png" alt="The plugin's burger menu open, showing Tour, Help &amp; licence, and Send feedback, then Settings below a divider.">
+    <figcaption>Everything lives in the ☰ menu at the top right of the plugin.</figcaption>
   </figure>
 
   <p>One report per thing, please. And if something happens twice, say so – knowing a fault is
@@ -726,7 +833,7 @@
     operating system and the app version.</p>
   </div>
   <p>Nothing is sent in the background, and nothing about your projects, sequences, bins or clients
-  ever leaves your machine. The panel talks to the network for exactly two things: checking your
+  ever leaves your machine. The plugin talks to the network for exactly two things: checking your
   licence key, and checking whether an update exists.</p>
 
   <h2 id="troubleshooting">Troubleshooting</h2>
@@ -761,26 +868,26 @@
   <strong>&#9776; &gt; Help &amp; licence</strong>.</p>
   <p><strong>Only the Project button is grey?</strong> You are probably in an older project file
   and a newer one is sitting in the same folder &ndash; see <a href="#guard-project">It watches the
-  project file too</a>. The amber banner at the top of the panel says which file is newer.</p>
+  project file too</a>. The amber banner at the top of the plugin says which file is newer.</p>
   <p><strong>There is no trial or free mode.</strong> Until a key is activated, all three buttons are
-  disabled and the panel does nothing &ndash; so if you have just installed it and everything is grey,
+  disabled and the plugin does nothing &ndash; so if you have just installed it and everything is grey,
   that is the licence, not a fault.</p>
 
   <h3>Nothing happened when I pressed a button</h3>
   <p>If the button is greyed and reads <strong>WORKING&hellip;</strong>, it is running &ndash; give
-  it a moment. Premiere stops the panel while it saves, so nothing on screen can move until it is
+  it a moment. Premiere stops the plugin while it saves, so nothing on screen can move until it is
   done.</p>
-  <p>Otherwise, open the log at the bottom of the panel &ndash; it says what ran and what it did. If
+  <p>Otherwise, open the log at the bottom of the plugin &ndash; it says what ran and what it did. If
   the button was greyed out before you pressed it, either nothing was selected, or a newer version
   of that sequence already exists and VersionUp is refusing to branch off an old one.</p>
 
   <h3>The Versions list says &ldquo;no record&rdquo;</h3>
   <p>That version was not made by VersionUp &ndash; renamed by hand, or made before you installed
-  it. The panel says so rather than inventing a date. Everything you version from here on will be
+  it. The plugin says so rather than inventing a date. Everything you version from here on will be
   listed.</p>
 
   <h3>Cmd-click (Ctrl-click on Windows) or Shift-click does nothing</h3>
-  <p>Premiere does not pass every modifier key through to a plugin panel on every system. Rest on
+  <p>Premiere does not pass every modifier key through to a plugin on every system. Rest on
   the button first: if the row for that key never lights up while you hold it, the key is not
   reaching VersionUp. Alt is the reliable one. To show a project&rsquo;s folder without a key, click its
   row in the Versions strip.</p>
@@ -791,13 +898,13 @@
       install it.</li>
     <li><strong>It doesn't sync, share or back anything up.</strong> It renames and moves things
       inside your project.</li>
-    <li><strong>Project versioning can't be undone.</strong> Everything else is a single Undo (Cmd+Z, or Ctrl+Z on Windows).
+    <li><strong>Project versioning can't be undone.</strong> Everything else can be undone (Cmd+Z, or Ctrl+Z on Windows).
       VersionUp will at least refuse to write over a project file that already exists.</li>
     <li><strong>It doesn't replace autosave.</strong> Different job entirely.</li>
   </ul>
 
   <h2 id="support">Support</h2>
-  <p>The quickest route is <strong>☰ &gt; Send feedback</strong> inside the panel – it attaches
+  <p>The quickest route is <strong>☰ &gt; Send feedback</strong> inside the plugin – it attaches
   your version and system automatically, which saves us both an email.</p>
   <p>Otherwise: <a href="mailto:support@nkcourses.co.uk">support@nkcourses.co.uk</a>. I am one
   person, so it might take a day, but it will be me answering.</p>
