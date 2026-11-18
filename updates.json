@@ -1,11 +1,10 @@
 {
-  "latest": "1.5.4",
-  "released": "2026-10-20",
-  "headline": "One-click updates.",
+  "latest": "1.5.5",
+  "released": "2026-11-18",
+  "headline": "Delivered gets its own colour.",
   "url": "https://nkcourses.github.io/versionup-updates/#history",
   "notes": [
-    "New: when a new version is out, press Update. VersionUp downloads it and Creative Cloud asks once to replace the current version, then VersionUp reloads. No file to find, no restart",
-    "If the update can't install from inside Premiere, Update opens the download in your browser instead, as before",
-    "Wording tidied: VersionUp is called a plugin everywhere"
+    "Delivered (Cmd-click Approve, Ctrl-click on Windows) is now yellow: the parcel while you hold the key, and the ring when it's done. Approve stays green, so you can tell at a glance which one you pressed",
+    "Fixed: when VersionUp opens the help guide, the website or a download, Premiere's permission popup showed a line of text you couldn't read on the dark theme. That line is gone"
   ]
 }
